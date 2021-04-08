@@ -1,0 +1,24 @@
+toolsets = vs2017 vs2015 vs2013;
+
+vs2017.solutionfile = ../VC15/IshikoDiff.sln;
+vs2015.solutionfile = ../VC14/IshikoDiff.sln;
+vs2013.solutionfile = ../VC12/IshikoDiff.sln;
+
+library IshikoDiff
+{
+    archs = x86 x86_64;
+
+    includedirs += ../../Include/Ishiko/Diff;
+
+    outputdir = ../../Lib/$(arch);
+
+    if ($(config) == Debug)
+    {
+        basename = IshikoDiff-d;
+    }
+
+    headers
+    {
+        ../../Include/Ishiko/Diff/linkoptions.h
+    }
+}
