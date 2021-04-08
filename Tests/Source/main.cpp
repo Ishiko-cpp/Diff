@@ -4,13 +4,17 @@
     See https://github.com/Ishiko-cpp/Diff/blob/main/LICENSE.txt
 */
 
-#include "Ishiko/TestFramework/TestFrameworkCore.h"
+#include "TextDiffTests.h"
+#include <Ishiko/TestFramework/TestFrameworkCore.h>
 
 using namespace Ishiko::Tests;
 
 int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("IshikoDiff");
+
+    TestSequence& theTests = theTestHarness.tests();
+    theTests.append<TextDiffTests>();
 
     return theTestHarness.run();
 }

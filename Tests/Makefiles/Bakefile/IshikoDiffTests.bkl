@@ -18,8 +18,14 @@ program IshikoDiffTests : IshikoTestFrameworkCore
         libs += IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
     }
 
+    headers
+    {
+        ../../Source/TextDiffTests.h
+    }
+
     sources
     {
         ../../Source/main.cpp
+        ../../Source/TextDiffTests.cpp
     }
 }
