@@ -4,6 +4,7 @@
     See https://github.com/Ishiko-cpp/Diff/blob/main/LICENSE.txt
 */
 
+#include "TextPatchTests.h"
 #include "TextDiffTests.h"
 #include <Ishiko/TestFramework/TestFrameworkCore.h>
 
@@ -14,6 +15,7 @@ int main(int argc, char* argv[])
     TestHarness theTestHarness("IshikoDiff");
 
     TestSequence& theTests = theTestHarness.tests();
+    theTests.append<TextPatchTests>();
     theTests.append<TextDiffTests>();
 
     return theTestHarness.run();
