@@ -7,6 +7,8 @@ jobs:
       - run:
           name: "Set ISHIKO_CPP environment variable and create directory"
           command: mkdir /Ishiko-cpp && echo 'export ISHIKO_CPP="/Ishiko-cpp"' >> $BASH_ENV
+      - checkout:
+          path: /Ishiko-cpp/Diff
       - run:
           name: Build
           command: cd /Ishiko-cpp/Diff/Makefiles/GNUmakefile && make
