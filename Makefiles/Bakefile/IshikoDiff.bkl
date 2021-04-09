@@ -33,6 +33,7 @@ library IshikoDiff
 
         ../../Include/Ishiko/Diff/BinaryDiff.h
         ../../Include/Ishiko/Diff/TextDiff.h
+        ../../Include/Ishiko/Diff/TextPatch.h
         ../../Include/Ishiko/Diff/linkoptions.h
     }
 
@@ -40,5 +41,6 @@ library IshikoDiff
     {
         ../../Source/BinaryDiff.cpp
         ../../Source/TextDiff.cpp
+        ../../Source/TextPatch.cpp
     }
 }

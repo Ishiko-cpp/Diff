@@ -21,11 +21,13 @@ program IshikoDiffTests : IshikoTestFrameworkCore
     headers
     {
         ../../Source/TextDiffTests.h
+        ../../Source/TextPatchTests.h
     }
 
     sources
     {
         ../../Source/main.cpp
         ../../Source/TextDiffTests.cpp
+        ../../Source/TextPatchTests.cpp
     }
 }

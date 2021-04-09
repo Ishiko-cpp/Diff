@@ -152,11 +152,13 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\BinaryDiff.cpp" />
     <ClCompile Include="..\..\Source\TextDiff.cpp" />
+    <ClCompile Include="..\..\Source\TextPatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Ishiko\Diff.h" />
     <ClInclude Include="..\..\Include\Ishiko\Diff\BinaryDiff.h" />
     <ClInclude Include="..\..\Include\Ishiko\Diff\TextDiff.h" />
+    <ClInclude Include="..\..\Include\Ishiko\Diff\TextPatch.h" />
     <ClInclude Include="..\..\Include\Ishiko\Diff\linkoptions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
