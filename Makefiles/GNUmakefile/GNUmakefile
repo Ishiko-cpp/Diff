@@ -38,7 +38,7 @@ endif
 # settings:
 #
 #      ISHIKO_CPP_ERRORS_ROOT  Path to the Ishiko Errors installation
-#      BOOST_ROOT              Path to the Boost installation
+#      ISHIKO_CPP_BOOST_ROOT   Path to the Boost installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -68,7 +68,7 @@ endif
 # Path to the Ishiko Errors installation
 ISHIKO_CPP_ERRORS_ROOT ?= $(ISHIKO_CPP)/Errors
 # Path to the Boost installation
-BOOST_ROOT ?= $(BOOST)
+ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
 
 # ------------
 
@@ -79,13 +79,13 @@ all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,I
 	$(RANLIB) $@
 
 $(_builddir)IshikoDiff_BinaryDiff.o: ../../Source/BinaryDiff.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/BinaryDiff.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/BinaryDiff.cpp
 
 $(_builddir)IshikoDiff_TextDiff.o: ../../Source/TextDiff.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextDiff.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextDiff.cpp
 
 $(_builddir)IshikoDiff_TextPatch.o: ../../Source/TextPatch.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextPatch.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextPatch.cpp
 
 clean:
 	rm -f $(_builddir)*.o
