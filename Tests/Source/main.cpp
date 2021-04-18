@@ -14,6 +14,8 @@ int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("IshikoDiff");
 
+    theTestHarness.environment().setTestDataDirectory("../../TestData");
+
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<TextPatchTests>();
     theTests.append<TextDiffTests>();
