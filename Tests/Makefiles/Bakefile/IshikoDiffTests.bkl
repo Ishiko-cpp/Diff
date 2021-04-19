@@ -20,12 +20,14 @@ program IshikoDiffTests : IshikoTestFrameworkCore
 
     headers
     {
+        ../../Source/AlgorithmsTests.h
         ../../Source/TextDiffTests.h
     }
 
     sources
     {
         ../../Source/main.cpp
+        ../../Source/AlgorithmsTests.cpp
         ../../Source/TextDiffTests.cpp
     }
 }
