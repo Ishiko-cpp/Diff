@@ -56,9 +56,12 @@ $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_er
 endif
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextDiff.o
-	$(AR) rc $@ $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextDiff.o
+../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextDiff.o
+	$(AR) rc $@ $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextDiff.o
 	$(RANLIB) $@
+
+$(_builddir)IshikoDiff_Algorithms.o: ../../Source/Algorithms.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../Include/Ishiko/Diff -std=c++11 ../../Source/Algorithms.cpp
 
 $(_builddir)IshikoDiff_BinaryDiff.o: ../../Source/BinaryDiff.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../Include/Ishiko/Diff -std=c++11 ../../Source/BinaryDiff.cpp

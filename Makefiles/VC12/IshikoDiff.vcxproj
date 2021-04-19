@@ -150,11 +150,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Algorithms.cpp" />
     <ClCompile Include="..\..\Source\BinaryDiff.cpp" />
     <ClCompile Include="..\..\Source\TextDiff.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\Ishiko\Diff.h" />
+    <ClInclude Include="..\..\Include\Ishiko\Diff\Algorithms.h" />
     <ClInclude Include="..\..\Include\Ishiko\Diff\BinaryDiff.h" />
     <ClInclude Include="..\..\Include\Ishiko\Diff\TextDiff.h" />
     <ClInclude Include="..\..\Include\Ishiko\Diff\linkoptions.h" />

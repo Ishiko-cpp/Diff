@@ -4,13 +4,7 @@
     See https://github.com/Ishiko-cpp/Diff/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_DIFF_H_
-#define _ISHIKO_DIFF_H_
-
-#include "Algorithms.h"
-#include "BinaryDiff.h"
-#include "TextDiff.h"
-
-#include "linkoptions.h"
+#ifndef _ISHIKO_DIFF_ALGORITHMS_H_
+#define _ISHIKO_DIFF_ALGORITHMS_H_
 
 #endif

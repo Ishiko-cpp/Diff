@@ -31,6 +31,7 @@ library IshikoDiff
     {
         ../../Include/Ishiko/Diff.h
 
+        ../../Include/Ishiko/Diff/Algorithms.h
         ../../Include/Ishiko/Diff/BinaryDiff.h
         ../../Include/Ishiko/Diff/TextDiff.h
         ../../Include/Ishiko/Diff/linkoptions.h
@@ -38,6 +39,7 @@ library IshikoDiff
 
     sources
     {
+        ../../Source/Algorithms.cpp
         ../../Source/BinaryDiff.cpp
         ../../Source/TextDiff.cpp
     }
