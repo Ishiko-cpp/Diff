@@ -13,6 +13,9 @@ class AlgorithmsTests : public Ishiko::Tests::TestSequence
 {
 public:
     AlgorithmsTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestEnvironment& environment);
+
+private:
+    static void WagnerFischerAlgorithmTest1(Ishiko::Tests::Test& test);
 };
 
 #endif

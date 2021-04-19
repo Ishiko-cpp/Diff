@@ -7,4 +7,18 @@
 #ifndef _ISHIKO_DIFF_ALGORITHMS_H_
 #define _ISHIKO_DIFF_ALGORITHMS_H_
 
+#include <string>
+
+namespace Ishiko
+{
+namespace Diff
+{
+
+size_t WagnerFischerAlgorithm(const std::string& originalString, const std::string& newString);
+
+}
+}
+
+#include "linkoptions.h"
+
 #endif
