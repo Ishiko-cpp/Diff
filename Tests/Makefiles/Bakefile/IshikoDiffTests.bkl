@@ -16,11 +16,12 @@ program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
+        libs += IshikoDiff IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
     }
 
     headers
     {
+        ../../Source/AlgorithmsTests.h
         ../../Source/TextDiffTests.h
         ../../Source/TextPatchTests.h
     }
@@ -28,6 +29,7 @@ program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
     sources
     {
         ../../Source/main.cpp
+        ../../Source/AlgorithmsTests.cpp
         ../../Source/TextDiffTests.cpp
         ../../Source/TextPatchTests.cpp
     }

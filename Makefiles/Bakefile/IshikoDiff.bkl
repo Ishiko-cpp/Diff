@@ -1,4 +1,5 @@
 ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/Collections/Include/Ishiko/Collections.bkl;
 import $(ishikopath)/Errors/Include/Ishiko/Errors.bkl;
 import $(ishikopath)/ThirdPartyGlue/Include/Ishiko/ThirdParty/Boost.bkl;
 
@@ -9,7 +10,7 @@ vs2017.solutionfile = ../VC15/IshikoDiff.sln;
 vs2015.solutionfile = ../VC14/IshikoDiff.sln;
 vs2013.solutionfile = ../VC12/IshikoDiff.sln;
 
-library IshikoDiff : IshikoErrors, Boost
+library IshikoDiff : IshikoCollections, IshikoErrors, Boost
 {
     archs = x86 x86_64;
 
@@ -35,6 +36,7 @@ library IshikoDiff : IshikoErrors, Boost
     {
         ../../Include/Ishiko/Diff.h
 
+        ../../Include/Ishiko/Diff/Algorithms.h
         ../../Include/Ishiko/Diff/BinaryDiff.h
         ../../Include/Ishiko/Diff/TextDiff.h
         ../../Include/Ishiko/Diff/TextPatch.h
@@ -43,6 +45,7 @@ library IshikoDiff : IshikoErrors, Boost
 
     sources
     {
+        ../../Source/Algorithms.cpp
         ../../Source/BinaryDiff.cpp
         ../../Source/TextDiff.cpp
         ../../Source/TextPatch.cpp

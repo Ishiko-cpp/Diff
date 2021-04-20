@@ -4,6 +4,7 @@
     See https://github.com/Ishiko-cpp/Diff/blob/main/LICENSE.txt
 */
 
+#include "AlgorithmsTests.h"
 #include "TextPatchTests.h"
 #include "TextDiffTests.h"
 #include <Ishiko/TestFramework/TestFrameworkCore.h>
@@ -17,6 +18,7 @@ int main(int argc, char* argv[])
     theTestHarness.environment().setTestDataDirectory("../../TestData");
 
     TestSequence& theTests = theTestHarness.tests();
+    theTests.append<AlgorithmsTests>();
     theTests.append<TextPatchTests>();
     theTests.append<TextDiffTests>();
 

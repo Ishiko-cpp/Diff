@@ -153,10 +153,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\main.cpp" />
+    <ClCompile Include="..\..\Source\AlgorithmsTests.cpp" />
     <ClCompile Include="..\..\Source\TextDiffTests.cpp" />
     <ClCompile Include="..\..\Source\TextPatchTests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AlgorithmsTests.h" />
     <ClInclude Include="..\..\Source\TextDiffTests.h" />
     <ClInclude Include="..\..\Source\TextPatchTests.h" />
   </ItemGroup>
