@@ -16,6 +16,10 @@ public:
 
 private:
     static void WagnerFischerAlgorithmTest1(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest2(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest3(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest4(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest5(Ishiko::Tests::Test& test);
 };
 
 #endif
