@@ -1,0 +1,20 @@
+setting ISHIKO_CPP_DIFF_ROOT
+{
+    help = "Path to the Ishiko Diff installation";
+    default = '$(ISHIKO_CPP)/Diff';
+}
+
+template IshikoDiff
+{
+    includedirs += $(ISHIKO_CPP_DIFF_ROOT)/Include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/Lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/Lib/$(arch);
+    }
+}

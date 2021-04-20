@@ -1,3 +1,6 @@
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/Collections/Include/Ishiko/Collections.bkl;
+
 toolsets = gnu vs2017 vs2015 vs2013;
 
 gnu.makefile = ../GNUmakefile/GNUmakefile;
@@ -5,7 +8,7 @@ vs2017.solutionfile = ../VC15/IshikoDiff.sln;
 vs2015.solutionfile = ../VC14/IshikoDiff.sln;
 vs2013.solutionfile = ../VC12/IshikoDiff.sln;
 
-library IshikoDiff
+library IshikoDiff : IshikoCollections
 {
     archs = x86 x86_64;
 
@@ -31,6 +34,7 @@ library IshikoDiff
     {
         ../../Include/Ishiko/Diff.h
 
+        ../../Include/Ishiko/Diff/Algorithms.h
         ../../Include/Ishiko/Diff/BinaryDiff.h
         ../../Include/Ishiko/Diff/TextDiff.h
         ../../Include/Ishiko/Diff/linkoptions.h
@@ -38,6 +42,7 @@ library IshikoDiff
 
     sources
     {
+        ../../Source/Algorithms.cpp
         ../../Source/BinaryDiff.cpp
         ../../Source/TextDiff.cpp
     }
