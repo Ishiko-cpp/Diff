@@ -1,5 +1,6 @@
 ishikopath = envvar("ISHIKO_CPP");
 import $(ishikopath)/Collections/Include/Ishiko/Collections.bkl;
+import $(ishikopath)/Types/Include/Ishiko/Types.bkl;
 import $(ishikopath)/Errors/Include/Ishiko/Errors.bkl;
 import $(ishikopath)/ThirdPartyGlue/Include/Ishiko/ThirdParty/Boost.bkl;
 
@@ -10,7 +11,7 @@ vs2017.solutionfile = ../VC15/IshikoDiff.sln;
 vs2015.solutionfile = ../VC14/IshikoDiff.sln;
 vs2013.solutionfile = ../VC12/IshikoDiff.sln;
 
-library IshikoDiff : IshikoCollections, IshikoErrors, Boost
+library IshikoDiff : IshikoCollections, IshikoTypes, IshikoErrors, Boost
 {
     archs = x86 x86_64;
 
