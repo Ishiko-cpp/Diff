@@ -19,6 +19,10 @@ AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 4", WagnerFischerAlgorithmTest4);
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 5", WagnerFischerAlgorithmTest5);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 1", MyersAlgorithmTest1);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 2", MyersAlgorithmTest2);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 3", MyersAlgorithmTest3);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 4", MyersAlgorithmTest4);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 5", MyersAlgorithmTest5);
 }
 
 void AlgorithmsTests::WagnerFischerAlgorithmTest1(Test& test)
@@ -76,5 +80,47 @@ void AlgorithmsTests::MyersAlgorithmTest1(Test& test)
     size_t distance = MyersAlgorithm("", "");
 
     ISHTF_FAIL_IF_NEQ(distance, 0);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest2(Test& test)
+{
+    size_t distance = MyersAlgorithm("abc", "");
+
+    ISHTF_FAIL_IF_NEQ(distance, 3);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest3(Test& test)
+{
+    size_t distance = MyersAlgorithm("", "abc");
+
+    ISHTF_FAIL_IF_NEQ(distance, 3);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest4(Test& test)
+{
+    size_t distance = MyersAlgorithm("kitten", "sitting");
+
+    ISHTF_FAIL_IF_NEQ(distance, 5);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest5(Test& test)
+{
+    size_t distance1 = MyersAlgorithm("kitten", "smitten");
+    size_t distance2 = MyersAlgorithm("kitten", "mitten");
+    size_t distance3 = MyersAlgorithm("kitten", "kitty");
+    size_t distance4 = MyersAlgorithm("kitten", "fitting");
+    size_t distance5 = MyersAlgorithm("kitten", "written");
+    size_t distance6 = MyersAlgorithm("Saturday", "Sunday");
+
+    ISHTF_FAIL_IF_NEQ(distance1, 3);
+    ISHTF_FAIL_IF_NEQ(distance2, 2);
+    ISHTF_FAIL_IF_NEQ(distance3, 3);
+    ISHTF_FAIL_IF_NEQ(distance4, 5);
+    ISHTF_FAIL_IF_NEQ(distance5, 3);
+    ISHTF_FAIL_IF_NEQ(distance6, 4);
     ISHTF_PASS();
 }

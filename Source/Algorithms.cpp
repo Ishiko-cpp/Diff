@@ -18,6 +18,37 @@ namespace Diff
 
 size_t MyersAlgorithm(const std::string& originalString, const std::string& newString)
 {
+    int max = originalString.size() + newString.size();
+    std::vector<int> v;
+    v.resize((2 * max) + 2);
+    v[max] = 0;
+    for (int d = 0; d <= max; ++d)
+    {
+        for (int k = -d; k <= d; k += 2)
+        {
+            int x = 0;
+            int y = 0;
+            if ((k == -d) || ((k != d) && (v[max + k - 1] < v[max + k + 1])))
+            {
+                x = v[max + k + 1];
+            }
+            else
+            {
+                x = v[max + k - 1] + 1;
+            }
+            y = (x - k);
+            while ((x < originalString.size()) && (y < newString.size()) && (originalString[x] == newString[y]))
+            {
+                ++x;
+                ++y;
+            }
+            v[max + k] = x;
+            if ((x >= originalString.size()) && (y >= newString.size()))
+            {
+                return d;
+            }
+        }
+    }
     return 0;
 }
 
