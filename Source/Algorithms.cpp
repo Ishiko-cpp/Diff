@@ -16,6 +16,11 @@ namespace Ishiko
 namespace Diff
 {
 
+size_t MyersAlgorithm(const std::string& originalString, const std::string& newString)
+{
+    return 0;
+}
+
 size_t WagnerFischerAlgorithm(const std::string& originalString, const std::string& newString)
 {
     Vector2D<size_t> distances(newString.size() + 1, originalString.size() + 1);

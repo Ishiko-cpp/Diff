@@ -18,6 +18,7 @@ AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 3", WagnerFischerAlgorithmTest3);
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 4", WagnerFischerAlgorithmTest4);
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 5", WagnerFischerAlgorithmTest5);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 1", MyersAlgorithmTest1);
 }
 
 void AlgorithmsTests::WagnerFischerAlgorithmTest1(Test& test)
@@ -67,5 +68,13 @@ void AlgorithmsTests::WagnerFischerAlgorithmTest5(Test& test)
     ISHTF_FAIL_IF_NEQ(distance4, 3);
     ISHTF_FAIL_IF_NEQ(distance5, 2);
     ISHTF_FAIL_IF_NEQ(distance6, 3);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest1(Test& test)
+{
+    size_t distance = MyersAlgorithm("", "");
+
+    ISHTF_FAIL_IF_NEQ(distance, 0);
     ISHTF_PASS();
 }

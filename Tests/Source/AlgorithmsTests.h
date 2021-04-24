@@ -20,6 +20,7 @@ private:
     static void WagnerFischerAlgorithmTest3(Ishiko::Tests::Test& test);
     static void WagnerFischerAlgorithmTest4(Ishiko::Tests::Test& test);
     static void WagnerFischerAlgorithmTest5(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest1(Ishiko::Tests::Test& test);
 };
 
 #endif
