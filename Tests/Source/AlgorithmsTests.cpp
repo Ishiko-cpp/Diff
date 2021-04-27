@@ -28,6 +28,7 @@ AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 7", MyersAlgorithmTest7);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 8", MyersAlgorithmTest8);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 9", MyersAlgorithmTest9);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 10", MyersAlgorithmTest10);
 }
 
 void AlgorithmsTests::WagnerFischerAlgorithmTest1(Test& test)
@@ -167,5 +168,35 @@ void AlgorithmsTests::MyersAlgorithmTest9(Test& test)
 
     ISHTF_FAIL_IF_NEQ(distance, 5);
     ISHTF_FAIL_IF_NEQ(path, std::vector<Point2D<int>>({ {1,0}, {4,4}, {5,4}, {6,6}, {6,7} }));
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest10(Test& test)
+{
+    std::vector<Point2D<int>> path1;
+    size_t distance1 = MyersAlgorithm("kitten", "smitten", path1);
+    std::vector<Point2D<int>> path2;
+    size_t distance2 = MyersAlgorithm("kitten", "mitten", path2);
+    std::vector<Point2D<int>> path3;
+    size_t distance3 = MyersAlgorithm("kitten", "kitty", path3);
+    std::vector<Point2D<int>> path4;
+    size_t distance4 = MyersAlgorithm("kitten", "fitting", path4);
+    std::vector<Point2D<int>> path5;
+    size_t distance5 = MyersAlgorithm("kitten", "written", path5);
+    std::vector<Point2D<int>> path6;
+    size_t distance6 = MyersAlgorithm("Saturday", "Sunday", path6);
+
+    ISHTF_FAIL_IF_NEQ(distance1, 3);
+    ISHTF_FAIL_IF_NEQ(path1, std::vector<Point2D<int>>({ {1,0}, {1,1}, {6,7} }));
+    ISHTF_FAIL_IF_NEQ(distance2, 2);
+    ISHTF_FAIL_IF_NEQ(path2, std::vector<Point2D<int>>({ {1,0}, {6,6} }));
+    ISHTF_FAIL_IF_NEQ(distance3, 3);
+    ISHTF_FAIL_IF_NEQ(path3, std::vector<Point2D<int>>({ {5,4}, {6,4}, {6,5} }));
+    ISHTF_FAIL_IF_NEQ(distance4, 5);
+    ISHTF_FAIL_IF_NEQ(path4, std::vector<Point2D<int>>({ {1,0}, {4,4}, {5,4}, {6,6}, {6,7} }));
+    ISHTF_FAIL_IF_NEQ(distance5, 3);
+    ISHTF_FAIL_IF_NEQ(path5, std::vector<Point2D<int>>({ {1,0}, {1,1}, {6,7} }));
+    ISHTF_FAIL_IF_NEQ(distance6, 4);
+    ISHTF_FAIL_IF_NEQ(path6, std::vector<Point2D<int>>({ {2,1}, {4,2}, {5,2}, {8,6} }));
     ISHTF_PASS();
 }

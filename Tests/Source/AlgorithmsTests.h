@@ -29,6 +29,7 @@ private:
     static void MyersAlgorithmTest7(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest8(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest9(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest10(Ishiko::Tests::Test& test);
 };
 
 #endif
