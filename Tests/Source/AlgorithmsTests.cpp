@@ -7,6 +7,7 @@
 #include "AlgorithmsTests.h"
 #include "Ishiko/Diff/Algorithms.h"
 
+using namespace Ishiko;
 using namespace Ishiko::Diff;
 using namespace Ishiko::Tests;
 
@@ -23,6 +24,10 @@ AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 3", MyersAlgorithmTest3);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 4", MyersAlgorithmTest4);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 5", MyersAlgorithmTest5);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 6", MyersAlgorithmTest6);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 7", MyersAlgorithmTest7);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 8", MyersAlgorithmTest8);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 9", MyersAlgorithmTest9);
 }
 
 void AlgorithmsTests::WagnerFischerAlgorithmTest1(Test& test)
@@ -122,5 +127,45 @@ void AlgorithmsTests::MyersAlgorithmTest5(Test& test)
     ISHTF_FAIL_IF_NEQ(distance4, 5);
     ISHTF_FAIL_IF_NEQ(distance5, 3);
     ISHTF_FAIL_IF_NEQ(distance6, 4);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest6(Test& test)
+{
+    std::vector<Point2D<int>> path;
+    size_t distance = MyersAlgorithm("", "", path);
+
+    ISHTF_FAIL_IF_NEQ(distance, 0);
+    ISHTF_FAIL_IF_NEQ(path.size(), 0);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest7(Test& test)
+{
+    std::vector<Point2D<int>> path;
+    size_t distance = MyersAlgorithm("abc", "", path);
+
+    ISHTF_FAIL_IF_NEQ(distance, 3);
+    ISHTF_FAIL_IF_NEQ(path, std::vector<Point2D<int>>({ {1,0}, {2,0}, {3,0} }));
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest8(Test& test)
+{
+    std::vector<Point2D<int>> path;
+    size_t distance = MyersAlgorithm("", "abc", path);
+
+    ISHTF_FAIL_IF_NEQ(distance, 3);
+    ISHTF_FAIL_IF_NEQ(path, std::vector<Point2D<int>>({ {0,1}, {0,2}, {0,3} }));
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest9(Test& test)
+{
+    std::vector<Point2D<int>> path;
+    size_t distance = MyersAlgorithm("kitten", "sitting", path);
+
+    ISHTF_FAIL_IF_NEQ(distance, 5);
+    ISHTF_FAIL_IF_NEQ(path, std::vector<Point2D<int>>({ {1,0}, {4,4}, {5,4}, {6,6}, {6,7} }));
     ISHTF_PASS();
 }
