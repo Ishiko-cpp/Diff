@@ -8,7 +8,7 @@
 #define _ISHIKO_DIFF_TEXTDIFF_H_
 
 #include "TextPatch.h"
-#include <Ishiko/Errors/Error.h>
+#include <Ishiko/Errors.h>
 #include <boost/filesystem/path.hpp>
 
 namespace Ishiko
