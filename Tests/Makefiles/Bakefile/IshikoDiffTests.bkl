@@ -23,6 +23,7 @@ program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
     {
         ../../Source/AlgorithmsTests.h
         ../../Source/TextDiffTests.h
+        ../../Source/TextPatchTests.h
     }
 
     sources
@@ -30,5 +31,6 @@ program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
         ../../Source/main.cpp
         ../../Source/AlgorithmsTests.cpp
         ../../Source/TextDiffTests.cpp
+        ../../Source/TextPatchTests.cpp
     }
 }

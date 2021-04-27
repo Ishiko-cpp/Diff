@@ -16,6 +16,117 @@ namespace Ishiko
 namespace Diff
 {
 
+size_t MyersAlgorithm(const std::string& originalString, const std::string& newString)
+{
+    int max = originalString.size() + newString.size();
+    if (max == 0)
+    {
+        return 0;
+    }
+
+    std::vector<int> v;
+    v.resize((2 * max) + 2);
+    v[max] = 0;
+    for (int d = 0; d <= max; ++d)
+    {
+        for (int k = -d; k <= d; k += 2)
+        {
+            int x = 0;
+            int y = 0;
+            if ((k == -d) || ((k != d) && (v[max + k - 1] < v[max + k + 1])))
+            {
+                x = v[max + k + 1];
+            }
+            else
+            {
+                x = v[max + k - 1] + 1;
+            }
+            y = (x - k);
+            while ((x < originalString.size()) && (y < newString.size()) && (originalString[x] == newString[y]))
+            {
+                ++x;
+                ++y;
+            }
+            v[max + k] = x;
+            if ((x >= originalString.size()) && (y >= newString.size()))
+            {
+                return d;
+            }
+        }
+    }
+    return 0;
+}
+
+size_t MyersAlgorithm(const std::string& originalString, const std::string& newString, std::vector<Point2D<int>>& path)
+{
+    int max = originalString.size() + newString.size();
+    if (max == 0)
+    {
+        return 0;
+    }
+
+    std::vector<int> v;
+    v.resize((2 * max) + 2);
+    v[max] = 0;
+    std::vector<std::vector<int>> oldVs;
+    for (int d = 0; d <= max; ++d)
+    {
+        for (int k = -d; k <= d; k += 2)
+        {
+            int x = 0;
+            int y = 0;
+            if ((k == -d) || ((k != d) && (v[max + k - 1] < v[max + k + 1])))
+            {
+                x = v[max + k + 1];
+            }
+            else
+            {
+                x = v[max + k - 1] + 1;
+            }
+            y = (x - k);
+            while ((x < originalString.size()) && (y < newString.size()) && (originalString[x] == newString[y]))
+            {
+                ++x;
+                ++y;
+            }
+            v[max + k] = x;
+            if ((x >= originalString.size()) && (y >= newString.size()))
+            {
+                path.emplace(path.begin(), x, y);
+                int oldVIndex = oldVs.size() - 1;
+                while (oldVIndex > 0)
+                {
+                    // TODO: this needs more out of bounds testing
+                    while ((x > 0) && (y > 0) && (originalString[x-1] == newString[y-1]))
+                    {
+                        --x;
+                        --y;
+                    }
+                    if (oldVs[oldVIndex][max + k + 1] == x)
+                    {
+                        k = k + 1;
+                        --y;
+                    }
+                    else if ((oldVs[oldVIndex][max + k - 1] + 1) == x)
+                    {
+                        k = k - 1;
+                        --x;
+                    }
+                    else
+                    {
+                        // TODO: ERROR?
+                    }
+                    path.emplace(path.begin(), x, y);
+                    --oldVIndex;
+                }
+                return d;
+            }
+        }
+        oldVs.push_back(v);
+    }
+    return 0;
+}
+
 size_t WagnerFischerAlgorithm(const std::string& originalString, const std::string& newString)
 {
     Vector2D<size_t> distances(newString.size() + 1, originalString.size() + 1);
