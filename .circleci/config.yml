@@ -8,10 +8,22 @@ jobs:
           name: "Set ISHIKO_CPP environment variable and create directory"
           command: mkdir /Ishiko-cpp && echo 'export ISHIKO_CPP="/Ishiko-cpp"' >> $BASH_ENV
       - run:
+          name: "Checkout Ishiko-cpp/Errors dependency"
+          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Errors.git
+      - run:
+          name: "Checkout Ishiko-cpp/Types dependency"
+          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Types.git
+      - run:
           name: "Checkout Ishiko-cpp/Collections dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Collections.git
       - checkout:
           path: /Ishiko-cpp/Diff
+      - run:
+          name: "Build Ishiko-cpp/Errors dependency"
+          command: cd /Ishiko-cpp/Errors/Makefiles/GNUmakefile && make
+      - run:
+          name: "Build Ishiko-cpp/Types dependency"
+          command: cd /Ishiko-cpp/Types/Makefiles/GNUmakefile && make
       - run:
           name: "Build Ishiko-cpp/Collections dependency"
           command: cd /Ishiko-cpp/Collections/Makefiles/GNUmakefile && make
@@ -21,9 +33,6 @@ jobs:
       - run:
           name: "Checkout Ishiko-cpp/Platform test dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Platform.git
-      - run:
-          name: "Checkout Ishiko-cpp/Errors test dependency"
-          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Errors.git
       - run:
           name: "Checkout Ishiko-cpp/Text test dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Text.git
@@ -36,9 +45,6 @@ jobs:
       - run:
           name: "Build Ishiko-cpp/Platform test dependency"
           command: cd /Ishiko-cpp/Platform/Makefiles/GNUmakefile && make
-      - run:
-          name: "Build Ishiko-cpp/Errors test dependency"
-          command: cd /Ishiko-cpp/Errors/Makefiles/GNUmakefile && make
       - run:
           name: "Build Ishiko-cpp/Text test dependency"
           command: cd /Ishiko-cpp/Text/Makefiles/GNUmakefile && make

@@ -4,17 +4,21 @@
     See https://github.com/Ishiko-cpp/Diff/blob/main/LICENSE.txt
 */
 
-#include "TextDiff.h"
+#include "TextPatch.h"
 
 namespace Ishiko
 {
 namespace Diff
 {
 
-TextPatch TextDiff::Diff(const boost::filesystem::path& originalFile, const boost::filesystem::path& newFile,
-    Error& error)
+bool TextPatch::hasChanges() const
 {
-    return TextPatch();
+    return !m_chunks.empty();
+}
+
+size_t TextPatch::size() const
+{
+    return m_chunks.size();
 }
 
 }

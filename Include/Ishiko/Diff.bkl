@@ -1,10 +1,15 @@
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/Types/Include/Ishiko/Types.bkl;
+import $(ishikopath)/Errors/Include/Ishiko/Errors.bkl;
+import $(ishikopath)/ThirdPartyGlue/Include/Ishiko/ThirdParty/Boost.bkl;
+
 setting ISHIKO_CPP_DIFF_ROOT
 {
     help = "Path to the Ishiko Diff installation";
     default = '$(ISHIKO_CPP)/Diff';
 }
 
-template IshikoDiff
+template IshikoDiff : IshikoTypes, IshikoErrors, Boost
 {
     includedirs += $(ISHIKO_CPP_DIFF_ROOT)/Include;
 
