@@ -80,8 +80,8 @@ ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
 
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
-	$(AR) rc $@ $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
+../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
+	$(AR) rc $@ $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
 	$(RANLIB) $@
 
 $(_builddir)IshikoDiff_Algorithms.o: ../../Source/Algorithms.cpp
@@ -89,6 +89,9 @@ $(_builddir)IshikoDiff_Algorithms.o: ../../Source/Algorithms.cpp
 
 $(_builddir)IshikoDiff_BinaryDiff.o: ../../Source/BinaryDiff.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/BinaryDiff.cpp
+
+$(_builddir)IshikoDiff_TextChunk.o: ../../Source/TextChunk.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextChunk.cpp
 
 $(_builddir)IshikoDiff_TextDiff.o: ../../Source/TextDiff.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextDiff.cpp
