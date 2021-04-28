@@ -19,6 +19,7 @@ AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 3", WagnerFischerAlgorithmTest3);
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 4", WagnerFischerAlgorithmTest4);
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 5", WagnerFischerAlgorithmTest5);
+    append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 6", WagnerFischerAlgorithmTest6);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 1", MyersAlgorithmTest1);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 2", MyersAlgorithmTest2);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 3", MyersAlgorithmTest3);
@@ -29,6 +30,8 @@ AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 8", MyersAlgorithmTest8);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 9", MyersAlgorithmTest9);
     append<HeapAllocationErrorsTest>("MyersAlgorithm test 10", MyersAlgorithmTest10);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 11", MyersAlgorithmTest11);
+    append<HeapAllocationErrorsTest>("MyersAlgorithm test 12", MyersAlgorithmTest12);
 }
 
 void AlgorithmsTests::WagnerFischerAlgorithmTest1(Test& test)
@@ -57,13 +60,21 @@ void AlgorithmsTests::WagnerFischerAlgorithmTest3(Test& test)
 
 void AlgorithmsTests::WagnerFischerAlgorithmTest4(Test& test)
 {
+    size_t distance = WagnerFischerAlgorithm("abc", "abc");
+
+    ISHTF_FAIL_IF_NEQ(distance, 0);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::WagnerFischerAlgorithmTest5(Test& test)
+{
     size_t distance = WagnerFischerAlgorithm("kitten", "sitting");
 
     ISHTF_FAIL_IF_NEQ(distance, 3);
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::WagnerFischerAlgorithmTest5(Test& test)
+void AlgorithmsTests::WagnerFischerAlgorithmTest6(Test& test)
 {
     size_t distance1 = WagnerFischerAlgorithm("kitten", "smitten");
     size_t distance2 = WagnerFischerAlgorithm("kitten", "mitten");
@@ -107,13 +118,21 @@ void AlgorithmsTests::MyersAlgorithmTest3(Test& test)
 
 void AlgorithmsTests::MyersAlgorithmTest4(Test& test)
 {
+    size_t distance = MyersAlgorithm("abc", "abc");
+
+    ISHTF_FAIL_IF_NEQ(distance, 0);
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest5(Test& test)
+{
     size_t distance = MyersAlgorithm("kitten", "sitting");
 
     ISHTF_FAIL_IF_NEQ(distance, 5);
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::MyersAlgorithmTest5(Test& test)
+void AlgorithmsTests::MyersAlgorithmTest6(Test& test)
 {
     size_t distance1 = MyersAlgorithm("kitten", "smitten");
     size_t distance2 = MyersAlgorithm("kitten", "mitten");
@@ -131,7 +150,7 @@ void AlgorithmsTests::MyersAlgorithmTest5(Test& test)
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::MyersAlgorithmTest6(Test& test)
+void AlgorithmsTests::MyersAlgorithmTest7(Test& test)
 {
     std::vector<Point2D<int>> path;
     size_t distance = MyersAlgorithm("", "", path);
@@ -141,7 +160,7 @@ void AlgorithmsTests::MyersAlgorithmTest6(Test& test)
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::MyersAlgorithmTest7(Test& test)
+void AlgorithmsTests::MyersAlgorithmTest8(Test& test)
 {
     std::vector<Point2D<int>> path;
     size_t distance = MyersAlgorithm("abc", "", path);
@@ -151,7 +170,7 @@ void AlgorithmsTests::MyersAlgorithmTest7(Test& test)
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::MyersAlgorithmTest8(Test& test)
+void AlgorithmsTests::MyersAlgorithmTest9(Test& test)
 {
     std::vector<Point2D<int>> path;
     size_t distance = MyersAlgorithm("", "abc", path);
@@ -161,7 +180,17 @@ void AlgorithmsTests::MyersAlgorithmTest8(Test& test)
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::MyersAlgorithmTest9(Test& test)
+void AlgorithmsTests::MyersAlgorithmTest10(Test& test)
+{
+    std::vector<Point2D<int>> path;
+    size_t distance = MyersAlgorithm("abc", "abc", path);
+
+    ISHTF_FAIL_IF_NEQ(distance, 0);
+    ISHTF_FAIL_IF_NEQ(path, std::vector<Point2D<int>>({ {3,3} }));
+    ISHTF_PASS();
+}
+
+void AlgorithmsTests::MyersAlgorithmTest11(Test& test)
 {
     std::vector<Point2D<int>> path;
     size_t distance = MyersAlgorithm("kitten", "sitting", path);
@@ -171,7 +200,7 @@ void AlgorithmsTests::MyersAlgorithmTest9(Test& test)
     ISHTF_PASS();
 }
 
-void AlgorithmsTests::MyersAlgorithmTest10(Test& test)
+void AlgorithmsTests::MyersAlgorithmTest12(Test& test)
 {
     std::vector<Point2D<int>> path1;
     size_t distance1 = MyersAlgorithm("kitten", "smitten", path1);
