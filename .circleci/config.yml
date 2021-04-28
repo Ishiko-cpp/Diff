@@ -14,6 +14,9 @@ jobs:
           name: "Checkout Ishiko-cpp/Types dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Types.git
       - run:
+          name: "Checkout Ishiko-cpp/FileSystem dependency"
+          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/FileSystem.git
+      - run:
           name: "Checkout Ishiko-cpp/Collections dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Collections.git
       - checkout:
@@ -24,6 +27,9 @@ jobs:
       - run:
           name: "Build Ishiko-cpp/Types dependency"
           command: cd /Ishiko-cpp/Types/Makefiles/GNUmakefile && make
+      - run:
+          name: "Build Ishiko-cpp/FileSystem dependency"
+          command: cd /Ishiko-cpp/FileSystem/Makefiles/GNUmakefile && make
       - run:
           name: "Build Ishiko-cpp/Collections dependency"
           command: cd /Ishiko-cpp/Collections/Makefiles/GNUmakefile && make
