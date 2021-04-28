@@ -21,5 +21,15 @@ size_t TextPatch::size() const
     return m_chunks.size();
 }
 
+const TextChunk& TextPatch::operator[](size_t index) const
+{
+    return m_chunks[index];
+}
+
+void TextPatch::append(const TextChunk& chunk)
+{
+    m_chunks.push_back(chunk);
+}
+
 }
 }

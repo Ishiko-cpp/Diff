@@ -11,9 +11,19 @@ namespace Ishiko
 namespace Diff
 {
 
-TextChunk::TextChunk(Type type, const std::string& text)
-    : m_type(type), m_text(text)
+TextChunk::TextChunk(size_t originalPosition, size_t newPosition, Type type, const std::string& text)
+    : m_originalPosition(originalPosition), m_newPosition(newPosition), m_type(type), m_text(text)
 {
+}
+
+size_t TextChunk::originalPosition() const
+{
+    return m_originalPosition;
+}
+
+size_t TextChunk::newPosition() const
+{
+    return m_newPosition;
 }
 
 TextChunk::Type TextChunk::type() const
