@@ -16,5 +16,15 @@ TextChunk::TextChunk(Type type, const std::string& text)
 {
 }
 
+TextChunk::Type TextChunk::type() const
+{
+    return m_type;
+}
+
+const std::string& TextChunk::text() const
+{
+    return m_text;
+}
+
 }
 }

@@ -25,6 +25,9 @@ public:
     };
 
     TextChunk(Type type, const std::string& text);
+    
+    Type type() const;
+    const std::string& text() const;
 
 private:
     Type m_type;
