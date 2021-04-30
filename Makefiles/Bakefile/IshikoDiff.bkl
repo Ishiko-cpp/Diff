@@ -1,5 +1,6 @@
 ishikopath = envvar("ISHIKO_CPP");
 import $(ishikopath)/Collections/Include/Ishiko/Collections.bkl;
+import $(ishikopath)/Hash/Include/Ishiko/Hash.bkl;
 import $(ishikopath)/FileSystem/Include/Ishiko/FileSystem.bkl;
 import $(ishikopath)/Text/Include/Ishiko/Text.bkl;
 import $(ishikopath)/Types/Include/Ishiko/Types.bkl;
@@ -13,7 +14,7 @@ vs2017.solutionfile = ../VC15/IshikoDiff.sln;
 vs2015.solutionfile = ../VC14/IshikoDiff.sln;
 vs2013.solutionfile = ../VC12/IshikoDiff.sln;
 
-library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
+library IshikoDiff : IshikoCollections, IshikoHash, IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
 {
     archs = x86 x86_64;
 
