@@ -42,6 +42,7 @@ endif
 #      ISHIKO_CPP_PLATFORM_ROOT     Path to the Ishiko Platform installation
 #      ISHIKO_CPP_BOOST_ROOT        Path to the Boost installation
 #      ISHIKO_CPP_FILESYSTEM_ROOT   Path to the Ishiko FileSystem installation
+#      ISHIKO_CPP_TEXT_ROOT         Path to the Ishiko/Text installation
 #      ISHIKO_CPP_TYPES_ROOT        Path to the Ishiko Types installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
@@ -79,6 +80,8 @@ ISHIKO_CPP_PLATFORM_ROOT ?= $(ISHIKO_CPP)/Platform
 ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
 # Path to the Ishiko FileSystem installation
 ISHIKO_CPP_FILESYSTEM_ROOT ?= $(ISHIKO_CPP)/FileSystem
+# Path to the Ishiko/Text installation
+ISHIKO_CPP_TEXT_ROOT ?= $(ISHIKO_CPP)/Text
 # Path to the Ishiko Types installation
 ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/Types
 
@@ -91,19 +94,19 @@ all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,I
 	$(RANLIB) $@
 
 $(_builddir)IshikoDiff_Algorithms.o: ../../Source/Algorithms.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/Algorithms.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/Algorithms.cpp
 
 $(_builddir)IshikoDiff_BinaryDiff.o: ../../Source/BinaryDiff.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/BinaryDiff.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/BinaryDiff.cpp
 
 $(_builddir)IshikoDiff_TextChunk.o: ../../Source/TextChunk.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextChunk.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextChunk.cpp
 
 $(_builddir)IshikoDiff_TextDiff.o: ../../Source/TextDiff.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextDiff.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextDiff.cpp
 
 $(_builddir)IshikoDiff_TextPatch.o: ../../Source/TextPatch.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextPatch.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/Include -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_TYPES_ROOT)/Include -I../../Include/Ishiko/Diff -std=c++11 ../../Source/TextPatch.cpp
 
 clean:
 	rm -f $(_builddir)*.o
