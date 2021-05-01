@@ -63,7 +63,6 @@ TextPatch TextDiff::WordDiff(const std::string& originalString, const std::strin
     std::unordered_set<std::string> originalWordsSet(originalWords.begin(), originalWords.end());
     std::unordered_set<std::string> newWordsSet(newWords.begin(), newWords.end());
 
-
     // TODO: I need to be able to do Myers with an alphabet with characters that are not 1 byte
     std::vector<size_t> originalHashesString;
     for (const std::string& word : originalWords)

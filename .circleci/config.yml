@@ -17,6 +17,9 @@ jobs:
           name: "Checkout Ishiko-cpp/Types dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Types.git
       - run:
+          name: "Checkout Ishiko-cpp/Text dependency"
+          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Text.git
+      - run:
           name: "Checkout Ishiko-cpp/FileSystem dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/FileSystem.git
       - run:
@@ -34,6 +37,9 @@ jobs:
           name: "Build Ishiko-cpp/Types dependency"
           command: cd /Ishiko-cpp/Types/Makefiles/GNUmakefile && make
       - run:
+          name: "Build Ishiko-cpp/Text dependency"
+          command: cd /Ishiko-cpp/Text/Makefiles/GNUmakefile && make
+      - run:
           name: "Build Ishiko-cpp/FileSystem dependency"
           command: cd /Ishiko-cpp/FileSystem/Makefiles/GNUmakefile && make
       - run:
@@ -43,17 +49,11 @@ jobs:
           name: Build
           command: cd /Ishiko-cpp/Diff/Makefiles/GNUmakefile && make
       - run:
-          name: "Checkout Ishiko-cpp/Text test dependency"
-          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Text.git
-      - run:
           name: "Checkout Ishiko-cpp/Process test dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Process.git
       - run:
           name: "Checkout Ishiko-cpp/TestFramework test dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/TestFramework.git
-      - run:
-          name: "Build Ishiko-cpp/Text test dependency"
-          command: cd /Ishiko-cpp/Text/Makefiles/GNUmakefile && make
       - run:
           name: "Build Ishiko-cpp/Process test dependency"
           command: cd /Ishiko-cpp/Process/Makefiles/GNUmakefile && make
