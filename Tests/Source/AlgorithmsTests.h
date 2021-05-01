@@ -20,6 +20,9 @@ private:
     static void WagnerFischerAlgorithmTest3(Ishiko::Tests::Test& test);
     static void WagnerFischerAlgorithmTest4(Ishiko::Tests::Test& test);
     static void WagnerFischerAlgorithmTest5(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest6(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest7(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest8(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest1(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest2(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest3(Ishiko::Tests::Test& test);
@@ -30,6 +33,12 @@ private:
     static void MyersAlgorithmTest8(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest9(Ishiko::Tests::Test& test);
     static void MyersAlgorithmTest10(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest11(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest12(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest13(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest14(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest15(Ishiko::Tests::Test& test);
+    static void MyersAlgorithmTest16(Ishiko::Tests::Test& test);
 };
 
 #endif

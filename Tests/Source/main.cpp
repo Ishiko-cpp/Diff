@@ -5,6 +5,7 @@
 */
 
 #include "AlgorithmsTests.h"
+#include "TextChunkTests.h"
 #include "TextPatchTests.h"
 #include "TextDiffTests.h"
 #include <Ishiko/TestFramework/TestFrameworkCore.h>
@@ -19,6 +20,7 @@ int main(int argc, char* argv[])
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<AlgorithmsTests>();
+    theTests.append<TextChunkTests>();
     theTests.append<TextPatchTests>();
     theTests.append<TextDiffTests>();
 

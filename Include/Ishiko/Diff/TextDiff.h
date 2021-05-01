@@ -19,7 +19,9 @@ namespace Diff
 class TextDiff
 {
 public:
-    static TextPatch Diff(const boost::filesystem::path& originalFile, const boost::filesystem::path& newFile,
+    static TextPatch CharacterDiff(const std::string& originalString, const std::string& newString);
+    static TextPatch WordDiff(const std::string& originalString, const std::string& newString);
+    static TextPatch LineDiffFiles(const boost::filesystem::path& originalFile, const boost::filesystem::path& newFile,
         Error& error);
 };
 
