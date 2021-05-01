@@ -20,6 +20,7 @@ class TextDiff
 {
 public:
     static TextPatch CharacterDiff(const std::string& originalString, const std::string& newString);
+    static TextPatch WordDiff(const std::string& originalString, const std::string& newString);
     static TextPatch LineDiffFiles(const boost::filesystem::path& originalFile, const boost::filesystem::path& newFile,
         Error& error);
 };

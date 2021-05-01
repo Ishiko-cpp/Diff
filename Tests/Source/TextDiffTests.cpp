@@ -22,6 +22,9 @@ TextDiffTests::TextDiffTests(const TestNumber& number, const TestEnvironment& en
     append<HeapAllocationErrorsTest>("CharacterDiff test 6", CharacterDiffTest6);
     append<HeapAllocationErrorsTest>("CharacterDiff test 7", CharacterDiffTest7);
     append<HeapAllocationErrorsTest>("CharacterDiff test 8", CharacterDiffTest8);
+    append<HeapAllocationErrorsTest>("WordDiff test 1", WordDiffTest1);
+    append<HeapAllocationErrorsTest>("WordDiff test 2", WordDiffTest2);
+    append<HeapAllocationErrorsTest>("WordDiff test 3", WordDiffTest3);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 1", LineDiffFilesTest1);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 2", LineDiffFilesTest2);
 }
@@ -49,7 +52,7 @@ void TextDiffTests::CharacterDiffTest3(Test& test)
     TextPatch patch = TextDiff::CharacterDiff("a", "");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
-    ISHTF_FAIL_IF_NEQ(patch.size(), 1);
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
@@ -62,7 +65,7 @@ void TextDiffTests::CharacterDiffTest4(Test& test)
     TextPatch patch = TextDiff::CharacterDiff("", "a");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
-    ISHTF_FAIL_IF_NEQ(patch.size(), 1);
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
@@ -75,7 +78,7 @@ void TextDiffTests::CharacterDiffTest5(Test& test)
     TextPatch patch = TextDiff::CharacterDiff("ab", "a");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
-    ISHTF_FAIL_IF_NEQ(patch.size(), 1);
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
@@ -88,7 +91,7 @@ void TextDiffTests::CharacterDiffTest6(Test& test)
     TextPatch patch = TextDiff::CharacterDiff("a", "ab");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
-    ISHTF_FAIL_IF_NEQ(patch.size(), 1);
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
@@ -101,7 +104,7 @@ void TextDiffTests::CharacterDiffTest7(Test& test)
     TextPatch patch = TextDiff::CharacterDiff("a", "abc");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
-    ISHTF_FAIL_IF_NEQ(patch.size(), 2);
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
     ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
@@ -118,7 +121,7 @@ void TextDiffTests::CharacterDiffTest8(Test& test)
     TextPatch patch = TextDiff::CharacterDiff("abc", "a");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
-    ISHTF_FAIL_IF_NEQ(patch.size(), 2);
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
     ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
@@ -127,6 +130,37 @@ void TextDiffTests::CharacterDiffTest8(Test& test)
     ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 1);
     ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
     ISHTF_FAIL_IF_NEQ(patch[1].text(), "c");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest1(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("", "");
+
+    ISHTF_FAIL_IF(patch.hasChanges());
+    ISHTF_FAIL_IF_NEQ(patch.size(), 0);
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest2(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("a", "a");
+
+    ISHTF_FAIL_IF(patch.hasChanges());
+    ISHTF_FAIL_IF_NEQ(patch.size(), 0);
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest3(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("a", "");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "a");
     ISHTF_PASS();
 }
 
