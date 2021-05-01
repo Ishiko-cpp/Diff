@@ -25,6 +25,9 @@ TextDiffTests::TextDiffTests(const TestNumber& number, const TestEnvironment& en
     append<HeapAllocationErrorsTest>("WordDiff test 1", WordDiffTest1);
     append<HeapAllocationErrorsTest>("WordDiff test 2", WordDiffTest2);
     append<HeapAllocationErrorsTest>("WordDiff test 3", WordDiffTest3);
+    append<HeapAllocationErrorsTest>("WordDiff test 4", WordDiffTest4);
+    append<HeapAllocationErrorsTest>("WordDiff test 5", WordDiffTest5);
+    append<HeapAllocationErrorsTest>("WordDiff test 6", WordDiffTest6);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 1", LineDiffFilesTest1);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 2", LineDiffFilesTest2);
 }
@@ -161,6 +164,45 @@ void TextDiffTests::WordDiffTest3(Test& test)
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
     ISHTF_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest4(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("abc", "");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "abc");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest5(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("", "a");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest6(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("", "abc");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "abc");
     ISHTF_PASS();
 }
 

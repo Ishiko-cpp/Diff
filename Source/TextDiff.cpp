@@ -60,21 +60,21 @@ TextPatch TextDiff::WordDiff(const std::string& originalString, const std::strin
     std::vector<std::string> originalWords = ASCII::Split(originalString);
     std::vector<std::string> newWords = ASCII::Split(newString);
 
-    std::unordered_set<std::string> originalWordsSet(originalWords.begin(), originalWords.end());
-    std::unordered_set<std::string> newWordsSet(newWords.begin(), newWords.end());
-
+    std::unordered_set<std::string> wordsSet(originalWords.begin(), originalWords.end());
+    wordsSet.insert(newWords.begin(), newWords.end());
+    
     // TODO: I need to be able to do Myers with an alphabet with characters that are not 1 byte
     std::vector<size_t> originalHashesString;
     for (const std::string& word : originalWords)
     {
         // We use the address in the unordered_set as that is guaranteed to be collision-free
-        originalHashesString.push_back((size_t)(&(*originalWordsSet.find(word))));
+        originalHashesString.push_back((size_t)(&(*wordsSet.find(word))));
     }
     std::vector<size_t> newHashesString;
     for (const std::string& word : newWords)
     {
         // We use the address in the unordered_set as that is guaranteed to be collision-free
-        newHashesString.push_back((size_t)(&(*originalWordsSet.find(word))));
+        newHashesString.push_back((size_t)(&(*wordsSet.find(word))));
     }
 
     std::vector<Point2D<int>> path;

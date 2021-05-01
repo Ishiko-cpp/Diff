@@ -26,6 +26,9 @@ private:
     static void WordDiffTest1(Ishiko::Tests::Test& test);
     static void WordDiffTest2(Ishiko::Tests::Test& test);
     static void WordDiffTest3(Ishiko::Tests::Test& test);
+    static void WordDiffTest4(Ishiko::Tests::Test& test);
+    static void WordDiffTest5(Ishiko::Tests::Test& test);
+    static void WordDiffTest6(Ishiko::Tests::Test& test);
     static void LineDiffFilesTest1(Ishiko::Tests::Test& test);
     static void LineDiffFilesTest2(Ishiko::Tests::Test& test);
 };
