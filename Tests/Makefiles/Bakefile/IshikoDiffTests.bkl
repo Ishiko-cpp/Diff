@@ -1,3 +1,4 @@
+import ../../../Include/Ishiko/Diff.bkl;
 ishikopath = envvar("ISHIKO_CPP");
 import $(ishikopath)/TestFramework/Include/Ishiko/TestFramework/TestFrameworkCore.bkl;
 
@@ -8,24 +9,30 @@ vs2017.solutionfile = ../VC15/IshikoDiffTests.sln;
 vs2015.solutionfile = ../VC14/IshikoDiffTests.sln;
 vs2013.solutionfile = ../VC12/IshikoDiffTests.sln;
 
-program IshikoDiffTests : IshikoTestFrameworkCore
+program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
 {
     archs = x86 x86_64;
 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
+        libs += IshikoDiff IshikoFileSystem IshikoText IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
     }
 
     headers
     {
+        ../../Source/AlgorithmsTests.h
+        ../../Source/TextChunkTests.h
         ../../Source/TextDiffTests.h
+        ../../Source/TextPatchTests.h
     }
 
     sources
     {
         ../../Source/main.cpp
+        ../../Source/AlgorithmsTests.cpp
+        ../../Source/TextChunkTests.cpp
         ../../Source/TextDiffTests.cpp
+        ../../Source/TextPatchTests.cpp
     }
 }
