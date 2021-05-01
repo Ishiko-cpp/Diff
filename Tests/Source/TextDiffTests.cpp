@@ -36,6 +36,8 @@ TextDiffTests::TextDiffTests(const TestNumber& number, const TestEnvironment& en
     append<HeapAllocationErrorsTest>("WordDiff test 11", WordDiffTest11);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 1", LineDiffFilesTest1);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 2", LineDiffFilesTest2);
+    append<HeapAllocationErrorsTest>("LineDiffFiles test 3", LineDiffFilesTest3);
+    append<HeapAllocationErrorsTest>("LineDiffFiles test 4", LineDiffFilesTest4);
 }
 
 void TextDiffTests::CharacterDiffTest1(Test& test)
@@ -329,5 +331,39 @@ void TextDiffTests::LineDiffFilesTest2(Test& test)
 
     ISHTF_FAIL_IF(error);
     ISHTF_FAIL_IF(patch.hasChanges());
+    ISHTF_PASS();
+}
+
+void TextDiffTests::LineDiffFilesTest3(Test& test)
+{
+    boost::filesystem::path originalFile = test.environment().getTestDataPath("File1.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("EmptyFile2.txt");
+
+    Error error;
+    TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::LineDiffFilesTest4(Test& test)
+{
+    boost::filesystem::path originalFile = test.environment().getTestDataPath("EmptyFile1.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("File2.txt");
+
+    Error error;
+    TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
     ISHTF_PASS();
 }

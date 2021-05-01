@@ -63,7 +63,6 @@ TextPatch TextDiff::WordDiff(const std::string& originalString, const std::strin
     std::unordered_set<std::string> wordsSet(originalWords.begin(), originalWords.end());
     wordsSet.insert(newWords.begin(), newWords.end());
     
-    // TODO: I need to be able to do Myers with an alphabet with characters that are not 1 byte
     std::vector<size_t> originalHashesString;
     for (const std::string& word : originalWords)
     {
@@ -114,8 +113,27 @@ TextPatch TextDiff::LineDiffFiles(const boost::filesystem::path& originalFile, c
     std::string originalString = ReadFile(originalFile, error);
     std::string newString = ReadFile(newFile, error);
     
+    std::vector<std::string> originalLines = ASCII::GetLines(originalString);
+    std::vector<std::string> newLines = ASCII::GetLines(newString);
+
+    std::unordered_set<std::string> linesSet(originalLines.begin(), originalLines.end());
+    linesSet.insert(newLines.begin(), newLines.end());
+
+    std::vector<size_t> originalHashesString;
+    for (const std::string& word : originalLines)
+    {
+        // We use the address in the unordered_set as that is guaranteed to be collision-free
+        originalHashesString.push_back((size_t)(&(*linesSet.find(word))));
+    }
+    std::vector<size_t> newHashesString;
+    for (const std::string& word : newLines)
+    {
+        // We use the address in the unordered_set as that is guaranteed to be collision-free
+        newHashesString.push_back((size_t)(&(*linesSet.find(word))));
+    }
+
     std::vector<Point2D<int>> path;
-    MyersAlgorithm(originalString, newString, path);
+    MyersAlgorithm(originalHashesString, newHashesString, path);
 
     Point2D<int> previousPosition(0, 0);
     for (const Point2D<int>& edit : path)
@@ -128,13 +146,13 @@ TextPatch TextDiff::LineDiffFiles(const boost::filesystem::path& originalFile, c
         {
             // Deletion from the original string
             result.append(TextChunk(previousPosition.x, previousPosition.y, TextChunk::eDeletion,
-                originalString.substr(previousPosition.x, 1)));
+                *(std::string*)(originalHashesString[previousPosition.x])));
         }
         else if (move.y > move.x)
         {
             // Insertion from the new string
             result.append(TextChunk(previousPosition.x, previousPosition.y, TextChunk::eInsertion,
-                newString.substr(previousPosition.y, 1)));
+                *(std::string*)(newHashesString[previousPosition.y])));
         }
 
         previousPosition = edit;
