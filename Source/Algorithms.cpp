@@ -25,7 +25,7 @@ size_t MyersAlgorithm(const std::string& originalString, const std::string& newS
     }
 
     std::vector<int> v;
-    v.resize((2 * max) + 2);
+    v.resize((2 * max) + 2); // TODO: can we get rid of +2 here?
     v[max] = 0;
     for (int d = 0; d <= max; ++d)
     {
@@ -66,7 +66,7 @@ size_t MyersAlgorithm(const std::string& originalString, const std::string& newS
     }
 
     std::vector<int> v;
-    v.resize((2 * max) + 2);
+    v.resize((2 * max) + 2); // TODO: can we get rid of +2 here?
     v[max] = 0;
     std::vector<std::vector<int>> oldVs;
     for (int d = 0; d <= max; ++d)
@@ -118,6 +118,22 @@ size_t MyersAlgorithm(const std::string& originalString, const std::string& newS
                     }
                     path.emplace(path.begin(), x, y);
                     --oldVIndex;
+                }
+                // TODO: this is messy. Other implementations usually eliminate the common prefix to avoid this. I
+                // guess we will have to do the same. In the meantime this is trying to figure out retroactively if
+                // there was such a common prefix by looking at the last (x,y) that we put in the path and adding an
+                // entry for it if we detect it.
+                if (x != y)
+                {
+                    // The conditions here check if the first entry in path is not (1,0) or (0,1)
+                    if ((x > y) && (x != 1))
+                    {
+                        path.emplace(path.begin(), x - 1, y);
+                    }
+                    else if ((y > x) && (y != 1))
+                    {
+                        path.emplace(path.begin(), x, y - 1);
+                    }
                 }
                 return d;
             }

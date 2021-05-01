@@ -26,6 +26,9 @@
     <ClInclude Include="..\..\Include\Ishiko\Diff\BinaryDiff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Include\Ishiko\Diff\TextChunk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Include\Ishiko\Diff\TextDiff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -41,6 +44,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\BinaryDiff.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TextChunk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\TextDiff.cpp">
