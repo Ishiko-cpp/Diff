@@ -39,6 +39,9 @@ private:
     static void LineDiffFilesTest2(Ishiko::Tests::Test& test);
     static void LineDiffFilesTest3(Ishiko::Tests::Test& test);
     static void LineDiffFilesTest4(Ishiko::Tests::Test& test);
+    static void LineDiffFilesTest5(Ishiko::Tests::Test& test);
+    static void LineDiffFilesTest6(Ishiko::Tests::Test& test);
+    static void LineDiffFilesTest7(Ishiko::Tests::Test& test);
 };
 
 #endif

@@ -38,6 +38,9 @@ TextDiffTests::TextDiffTests(const TestNumber& number, const TestEnvironment& en
     append<HeapAllocationErrorsTest>("LineDiffFiles test 2", LineDiffFilesTest2);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 3", LineDiffFilesTest3);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 4", LineDiffFilesTest4);
+    append<HeapAllocationErrorsTest>("LineDiffFiles test 5", LineDiffFilesTest5);
+    append<HeapAllocationErrorsTest>("LineDiffFiles test 6", LineDiffFilesTest6);
+    append<HeapAllocationErrorsTest>("LineDiffFiles test 7", LineDiffFilesTest7);
 }
 
 void TextDiffTests::CharacterDiffTest1(Test& test)
@@ -365,5 +368,60 @@ void TextDiffTests::LineDiffFilesTest4(Test& test)
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
     ISHTF_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::LineDiffFilesTest5(Test& test)
+{
+    boost::filesystem::path originalFile = test.environment().getTestDataPath("File4.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("File3.txt");
+
+    Error error;
+    TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "Another line.");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::LineDiffFilesTest6(Test& test)
+{
+    boost::filesystem::path originalFile = test.environment().getTestDataPath("File3.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("File4.txt");
+
+    Error error;
+    TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "Another line.");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::LineDiffFilesTest7(Test& test)
+{
+    boost::filesystem::path originalFile = test.environment().getTestDataPath("File5.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("File6.txt");
+
+    Error error;
+    TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "jumps over");
+    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[1].text(), "leaps over");
     ISHTF_PASS();
 }
