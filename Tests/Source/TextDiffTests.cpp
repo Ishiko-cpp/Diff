@@ -22,12 +22,18 @@ TextDiffTests::TextDiffTests(const TestNumber& number, const TestEnvironment& en
     append<HeapAllocationErrorsTest>("CharacterDiff test 6", CharacterDiffTest6);
     append<HeapAllocationErrorsTest>("CharacterDiff test 7", CharacterDiffTest7);
     append<HeapAllocationErrorsTest>("CharacterDiff test 8", CharacterDiffTest8);
+    append<HeapAllocationErrorsTest>("CharacterDiff test 9", CharacterDiffTest9);
     append<HeapAllocationErrorsTest>("WordDiff test 1", WordDiffTest1);
     append<HeapAllocationErrorsTest>("WordDiff test 2", WordDiffTest2);
     append<HeapAllocationErrorsTest>("WordDiff test 3", WordDiffTest3);
     append<HeapAllocationErrorsTest>("WordDiff test 4", WordDiffTest4);
     append<HeapAllocationErrorsTest>("WordDiff test 5", WordDiffTest5);
     append<HeapAllocationErrorsTest>("WordDiff test 6", WordDiffTest6);
+    append<HeapAllocationErrorsTest>("WordDiff test 7", WordDiffTest7);
+    append<HeapAllocationErrorsTest>("WordDiff test 8", WordDiffTest8);
+    append<HeapAllocationErrorsTest>("WordDiff test 9", WordDiffTest9);
+    append<HeapAllocationErrorsTest>("WordDiff test 10", WordDiffTest10);
+    append<HeapAllocationErrorsTest>("WordDiff test 11", WordDiffTest11);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 1", LineDiffFilesTest1);
     append<HeapAllocationErrorsTest>("LineDiffFiles test 2", LineDiffFilesTest2);
 }
@@ -104,6 +110,23 @@ void TextDiffTests::CharacterDiffTest6(Test& test)
 
 void TextDiffTests::CharacterDiffTest7(Test& test)
 {
+    TextPatch patch = TextDiff::CharacterDiff("abc", "a");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "b");
+    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[1].text(), "c");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::CharacterDiffTest8(Test& test)
+{
     TextPatch patch = TextDiff::CharacterDiff("a", "abc");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
@@ -119,20 +142,20 @@ void TextDiffTests::CharacterDiffTest7(Test& test)
     ISHTF_PASS();
 }
 
-void TextDiffTests::CharacterDiffTest8(Test& test)
+void TextDiffTests::CharacterDiffTest9(Test& test)
 {
-    TextPatch patch = TextDiff::CharacterDiff("abc", "a");
+    TextPatch patch = TextDiff::CharacterDiff("a", "b");
 
     ISHTF_FAIL_IF_NOT(patch.hasChanges());
     ISHTF_ABORT_IF_NEQ(patch.size(), 2);
-    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHTF_FAIL_IF_NEQ(patch[0].text(), "b");
-    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
-    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 1);
-    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
-    ISHTF_FAIL_IF_NEQ(patch[1].text(), "c");
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[1].text(), "b");
     ISHTF_PASS();
 }
 
@@ -203,6 +226,83 @@ void TextDiffTests::WordDiffTest6(Test& test)
     ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
     ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
     ISHTF_FAIL_IF_NEQ(patch[0].text(), "abc");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest7(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("a word", "a");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest8(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("a", "a word");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest9(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("a word more", "a");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[1].text(), "more");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest10(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("a", "a word more");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[1].text(), "more");
+    ISHTF_PASS();
+}
+
+void TextDiffTests::WordDiffTest11(Test& test)
+{
+    TextPatch patch = TextDiff::WordDiff("apple", "oranges");
+
+    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_ABORT_IF_NEQ(patch.size(), 2);
+    ISHTF_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHTF_FAIL_IF_NEQ(patch[0].text(), "apple");
+    ISHTF_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHTF_FAIL_IF_NEQ(patch[1].newPosition(), 0);
+    ISHTF_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHTF_FAIL_IF_NEQ(patch[1].text(), "oranges");
     ISHTF_PASS();
 }
 
