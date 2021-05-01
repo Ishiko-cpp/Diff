@@ -308,8 +308,8 @@ void TextDiffTests::WordDiffTest11(Test& test)
 
 void TextDiffTests::LineDiffFilesTest1(Test& test)
 {
-    boost::filesystem::path originalFile = test.environment().getTestDataPath("File1.txt");
-    boost::filesystem::path newFile = test.environment().getTestDataPath("File2.txt");
+    boost::filesystem::path originalFile = test.environment().getTestDataPath("EmptyFile1.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("EmptyFile2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -322,12 +322,12 @@ void TextDiffTests::LineDiffFilesTest1(Test& test)
 void TextDiffTests::LineDiffFilesTest2(Test& test)
 {
     boost::filesystem::path originalFile = test.environment().getTestDataPath("File1.txt");
-    boost::filesystem::path newFile = test.environment().getTestDataPath("File3.txt");
+    boost::filesystem::path newFile = test.environment().getTestDataPath("File2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
     ISHTF_FAIL_IF(error);
-    ISHTF_FAIL_IF_NOT(patch.hasChanges());
+    ISHTF_FAIL_IF(patch.hasChanges());
     ISHTF_PASS();
 }
