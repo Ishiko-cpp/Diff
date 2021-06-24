@@ -17,11 +17,11 @@ template IshikoDiff : IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, B
 
     if ($(toolset) == gnu)
     {
-        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/Lib;
+        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/lib;
     }
 
     if ($(toolset) != gnu)
     {
-        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/Lib/$(arch);
+        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/lib/$(arch);
     }
 }
