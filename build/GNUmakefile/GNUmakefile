@@ -87,9 +87,9 @@ ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/types
 
 # ------------
 
-all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
+all: ../Bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
+../Bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
 	$(AR) rc $@ $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
 	$(RANLIB) $@
 
@@ -111,7 +111,7 @@ $(_builddir)IshikoDiff_TextPatch.o: ../../Source/TextPatch.cpp
 clean:
 	rm -f $(_builddir)*.o
 	rm -f $(_builddir)*.d
-	rm -f ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
+	rm -f ../Bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
 
 .PHONY: all clean
 
