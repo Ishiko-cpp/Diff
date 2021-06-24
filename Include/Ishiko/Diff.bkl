@@ -1,27 +1,27 @@
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/FileSystem/Include/Ishiko/FileSystem.bkl;
-import $(ishikopath)/Text/Include/Ishiko/Text.bkl;
-import $(ishikopath)/Types/Include/Ishiko/Types.bkl;
-import $(ishikopath)/Errors/Include/Ishiko/Errors.bkl;
-import $(ishikopath)/ThirdPartyGlue/Include/Ishiko/ThirdParty/Boost.bkl;
+import $(ishikopath)/errors/include/Ishiko/Errors.bkl;
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
+import $(ishikopath)/text/include/Ishiko/Text.bkl;
+import $(ishikopath)/types/include/Ishiko/Types.bkl;
+import $(ishikopath)/third-party-glue/include/Ishiko/ThirdParty/Boost.bkl;
 
 setting ISHIKO_CPP_DIFF_ROOT
 {
     help = "Path to the Ishiko Diff installation";
-    default = '$(ISHIKO_CPP)/Diff';
+    default = '$(ISHIKO_CPP)/diff';
 }
 
 template IshikoDiff : IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
 {
-    includedirs += $(ISHIKO_CPP_DIFF_ROOT)/Include;
+    includedirs += $(ISHIKO_CPP_DIFF_ROOT)/include;
 
     if ($(toolset) == gnu)
     {
-        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/Lib;
+        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/lib;
     }
 
     if ($(toolset) != gnu)
     {
-        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/Lib/$(arch);
+        libdirs += $(ISHIKO_CPP_DIFF_ROOT)/lib/$(arch);
     }
 }
