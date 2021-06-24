@@ -17,7 +17,7 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 {
     archs = x86 x86_64;
 
-    includedirs += ../../Include/Ishiko/Diff;
+    includedirs += ../../include/Ishiko/Diff;
 
     if ($(toolset) == gnu)
     {
@@ -37,14 +37,14 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 
     headers
     {
-        ../../Include/Ishiko/Diff.h
+        ../../include/Ishiko/Diff.h
 
-        ../../Include/Ishiko/Diff/Algorithms.h
-        ../../Include/Ishiko/Diff/BinaryDiff.h
-        ../../Include/Ishiko/Diff/TextChunk.h
-        ../../Include/Ishiko/Diff/TextDiff.h
-        ../../Include/Ishiko/Diff/TextPatch.h
-        ../../Include/Ishiko/Diff/linkoptions.h
+        ../../include/Ishiko/Diff/Algorithms.h
+        ../../include/Ishiko/Diff/BinaryDiff.h
+        ../../include/Ishiko/Diff/TextChunk.h
+        ../../include/Ishiko/Diff/TextDiff.h
+        ../../include/Ishiko/Diff/TextPatch.h
+        ../../include/Ishiko/Diff/linkoptions.h
     }
 
     sources
