@@ -7,10 +7,10 @@
 #ifndef _ISHIKO_DIFF_H_
 #define _ISHIKO_DIFF_H_
 
-#include "Algorithms.h"
-#include "BinaryDiff.h"
-#include "TextDiff.h"
+#include "Diff/Algorithms.h"
+#include "Diff/BinaryDiff.h"
+#include "Diff/TextDiff.h"
 
-#include "linkoptions.h"
+#include "Diff/linkoptions.h"
 
 #endif

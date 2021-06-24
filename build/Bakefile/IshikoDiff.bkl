@@ -1,10 +1,10 @@
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/Collections/Include/Ishiko/Collections.bkl;
-import $(ishikopath)/FileSystem/Include/Ishiko/FileSystem.bkl;
-import $(ishikopath)/Text/Include/Ishiko/Text.bkl;
-import $(ishikopath)/Types/Include/Ishiko/Types.bkl;
-import $(ishikopath)/Errors/Include/Ishiko/Errors.bkl;
-import $(ishikopath)/ThirdPartyGlue/Include/Ishiko/ThirdParty/Boost.bkl;
+import $(ishikopath)/collections/include/Ishiko/Collections.bkl;
+import $(ishikopath)/errors/include/Ishiko/Errors.bkl;
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
+import $(ishikopath)/text/include/Ishiko/Text.bkl;
+import $(ishikopath)/types/include/Ishiko/Types.bkl;
+import $(ishikopath)/third-party-glue/include/Ishiko/ThirdParty/Boost.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
@@ -17,17 +17,17 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 {
     archs = x86 x86_64;
 
-    includedirs += ../../Include/Ishiko/Diff;
+    includedirs += ../../include/Ishiko/Diff;
 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        outputdir = ../../Lib;
+        outputdir = ../../lib;
     }
 
     if ($(toolset) != gnu)
     {
-        outputdir = ../../Lib/$(arch);
+        outputdir = ../../lib/$(arch);
     }
 
     if ($(config) == Debug)
@@ -37,14 +37,14 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 
     headers
     {
-        ../../Include/Ishiko/Diff.h
+        ../../include/Ishiko/Diff.h
 
-        ../../Include/Ishiko/Diff/Algorithms.h
-        ../../Include/Ishiko/Diff/BinaryDiff.h
-        ../../Include/Ishiko/Diff/TextChunk.h
-        ../../Include/Ishiko/Diff/TextDiff.h
-        ../../Include/Ishiko/Diff/TextPatch.h
-        ../../Include/Ishiko/Diff/linkoptions.h
+        ../../include/Ishiko/Diff/Algorithms.h
+        ../../include/Ishiko/Diff/BinaryDiff.h
+        ../../include/Ishiko/Diff/TextChunk.h
+        ../../include/Ishiko/Diff/TextDiff.h
+        ../../include/Ishiko/Diff/TextPatch.h
+        ../../include/Ishiko/Diff/linkoptions.h
     }
 
     sources
