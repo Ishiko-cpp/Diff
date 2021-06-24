@@ -14,11 +14,11 @@ jobs:
           name: "Install build dependency: Ishiko/C++ Errors"
           command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/errors.git && cd errors/build/GNUmakefile && make
       - run:
-          name: "Checkout Ishiko-cpp/Types dependency"
-          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Types.git
+          name: "Install build dependency: Ishiko/C++ Types"
+          command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/types.git && cd errors/build/GNUmakefile && make
       - run:
-          name: "Checkout Ishiko-cpp/Text dependency"
-          command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Text.git
+          name: "Install build dependency: Ishiko/C++ Text"
+          command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/text.git && cd errors/build/GNUmakefile && make
       - run:
           name: "Checkout Ishiko-cpp/FileSystem dependency"
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/FileSystem.git
@@ -27,12 +27,6 @@ jobs:
           command: cd /Ishiko-cpp && git clone https://github.com/Ishiko-cpp/Collections.git
       - checkout:
           path: /Ishiko-cpp/Diff
-      - run:
-          name: "Build Ishiko-cpp/Types dependency"
-          command: cd /Ishiko-cpp/Types/Makefiles/GNUmakefile && make
-      - run:
-          name: "Build Ishiko-cpp/Text dependency"
-          command: cd /Ishiko-cpp/Text/Makefiles/GNUmakefile && make
       - run:
           name: "Build Ishiko-cpp/FileSystem dependency"
           command: cd /Ishiko-cpp/FileSystem/Makefiles/GNUmakefile && make
