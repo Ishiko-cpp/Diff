@@ -4,60 +4,36 @@
     See https://github.com/Ishiko-cpp/Diff/blob/main/LICENSE.txt
 */
 
-#include "Algorithms.h"
-#include <Ishiko/Collections/Vector2D.h>
-#include <algorithm>
-#include <vector>
+#ifndef _ISHIKO_DIFF_ALGORITHMS_H_
+#define _ISHIKO_DIFF_ALGORITHMS_H_
 
-using namespace Ishiko::Collections;
+#include <Ishiko/Types.h>
+#include <string>
+#include <vector>
 
 namespace Ishiko
 {
 namespace Diff
 {
 
-size_t MyersAlgorithm(const std::string& originalString, const std::string& newString)
-{
-    int max = originalString.size() + newString.size();
-    if (max == 0)
-    {
-        return 0;
-    }
+/**
+ * The Myers algorithm as described in "An O(ND) Difference Algorithm and its Variations", Eugene Myers, Algorithmica
+ * Vol. 1 No. 2, 1986, pp. 251-266.
+ * TODO: do I need a version that allows substitutions?
+ * It's O(n * m) in space and time (worst case of totally different files).
+ */
+size_t MyersAlgorithm(const std::string& originalString, const std::string& newString);
 
-    std::vector<int> v;
-    v.resize((2 * max) + 2); // TODO: can we get rid of +2 here?
-    v[max] = 0;
-    for (int d = 0; d <= max; ++d)
-    {
-        for (int k = -d; k <= d; k += 2)
-        {
-            int x = 0;
-            int y = 0;
-            if ((k == -d) || ((k != d) && (v[max + k - 1] < v[max + k + 1])))
-            {
-                x = v[max + k + 1];
-            }
-            else
-            {
-                x = v[max + k - 1] + 1;
-            }
-            y = (x - k);
-            while ((x < originalString.size()) && (y < newString.size()) && (originalString[x] == newString[y]))
-            {
-                ++x;
-                ++y;
-            }
-            v[max + k] = x;
-            if ((x >= originalString.size()) && (y >= newString.size()))
-            {
-                return d;
-            }
-        }
-    }
-    return 0;
-}
+/**
+ * This variant of Myers returns the path to follow to in addition to the distance.
+ * It's O(n * m) in space and time (worst case of totally different files).
+ * The path always starts at (0, 0) so that is redundant information and not included in the path.
+ */
+size_t MyersAlgorithm(const std::string& originalString, const std::string& newString, std::vector<Point2D<int>>& path);
 
-size_t MyersAlgorithm(const std::string& originalString, const std::string& newString, std::vector<Point2D<int>>& path)
+// TODO: add tests for this
+template <class T>
+size_t MyersAlgorithm(const std::vector<T>& originalString, const std::vector<T>& newString, std::vector<Point2D<int>>& path)
 {
     int max = originalString.size() + newString.size();
     if (max == 0)
@@ -97,7 +73,7 @@ size_t MyersAlgorithm(const std::string& originalString, const std::string& newS
                 while (oldVIndex > 0)
                 {
                     // TODO: this needs more out of bounds testing
-                    while ((x > 0) && (y > 0) && (originalString[x-1] == newString[y-1]))
+                    while ((x > 0) && (y > 0) && (originalString[x - 1] == newString[y - 1]))
                     {
                         --x;
                         --y;
@@ -143,36 +119,16 @@ size_t MyersAlgorithm(const std::string& originalString, const std::string& newS
     return 0;
 }
 
-size_t WagnerFischerAlgorithm(const std::string& originalString, const std::string& newString)
-{
-    Vector2D<size_t> distances(newString.size() + 1, originalString.size() + 1);
-
-    for (size_t j = 0; j < (originalString.size() + 1); ++j)
-    {
-        distances.get(0, j) = j;
-    }
-
-    for (size_t i = 0; i < newString.size(); ++i)
-    {
-        distances.get(i + 1, 0) = (i + 1);
-        for (size_t j = 0; j < originalString.size(); ++j)
-        {
-            size_t substitutionCost = 0;
-            if (newString[i] != originalString[j])
-            {
-                substitutionCost = 1;
-            }
-
-            size_t insertionCost = distances.get(i, j + 1) + 1;
-            size_t deletionCost = distances.get(i + 1, j) + 1;
-            substitutionCost += distances.get(i, j);
-
-            distances.get(i + 1, j + 1) = std::min({ insertionCost, deletionCost, substitutionCost });
-        }
-    }
-
-    return distances.get(newString.size(), originalString.size());
-}
+/**
+ * The Wagner-Fischer algorithm as described here: https://en.wikipedia.org/wiki/Wagner%E2%80%93Fischer_algorithm
+ * This is O(N*M) in space and time algorithm that finds the edit distance if 3 operations are allowed: deletion, insertion and substitution.
+ * TODO: variations that don't allow substitution so it matches Myers? Other rules?
+ */
+size_t WagnerFischerAlgorithm(const std::string& originalString, const std::string& newString);
 
 }
 }
+
+#include "linkoptions.h"
+
+#endif

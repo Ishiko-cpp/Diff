@@ -1,0 +1,58 @@
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/collections/include/Ishiko/Collections.bkl;
+import $(ishikopath)/errors/include/Ishiko/Errors.bkl;
+import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
+import $(ishikopath)/text/include/Ishiko/Text.bkl;
+import $(ishikopath)/types/include/Ishiko/Types.bkl;
+import $(ishikopath)/third-party-glue/include/Ishiko/ThirdParty/Boost.bkl;
+
+toolsets = gnu vs2017 vs2015 vs2013;
+
+gnu.makefile = ../GNUmakefile/GNUmakefile;
+vs2017.solutionfile = ../VC15/IshikoDiff.sln;
+vs2015.solutionfile = ../VC14/IshikoDiff.sln;
+vs2013.solutionfile = ../VC12/IshikoDiff.sln;
+
+library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
+{
+    archs = x86 x86_64;
+
+    includedirs += ../../include/Ishiko/Diff;
+
+    if ($(toolset) == gnu)
+    {
+        cxx-compiler-options = "-std=c++11";
+        outputdir = ../../lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        outputdir = ../../lib/$(arch);
+    }
+
+    if ($(config) == Debug)
+    {
+        basename = IshikoDiff-d;
+    }
+
+    headers
+    {
+        ../../include/Ishiko/Diff.h
+
+        ../../include/Ishiko/Diff/Algorithms.h
+        ../../include/Ishiko/Diff/BinaryDiff.h
+        ../../include/Ishiko/Diff/TextChunk.h
+        ../../include/Ishiko/Diff/TextDiff.h
+        ../../include/Ishiko/Diff/TextPatch.h
+        ../../include/Ishiko/Diff/linkoptions.h
+    }
+
+    sources
+    {
+        ../../Source/Algorithms.cpp
+        ../../Source/BinaryDiff.cpp
+        ../../Source/TextChunk.cpp
+        ../../Source/TextDiff.cpp
+        ../../Source/TextPatch.cpp
+    }
+}
