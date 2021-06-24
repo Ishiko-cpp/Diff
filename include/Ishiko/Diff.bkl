@@ -8,12 +8,12 @@ import $(ishikopath)/third-party-glue/include/Ishiko/ThirdParty/Boost.bkl;
 setting ISHIKO_CPP_DIFF_ROOT
 {
     help = "Path to the Ishiko Diff installation";
-    default = '$(ISHIKO_CPP)/Diff';
+    default = '$(ISHIKO_CPP)/diff';
 }
 
 template IshikoDiff : IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
 {
-    includedirs += $(ISHIKO_CPP_DIFF_ROOT)/Include;
+    includedirs += $(ISHIKO_CPP_DIFF_ROOT)/include;
 
     if ($(toolset) == gnu)
     {
