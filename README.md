@@ -1,4 +1,4 @@
-# Ishiko/C++ - Diff
+# Ishiko/C++ Diff
 
 A collection of algorithms and tools to compare data.
 
