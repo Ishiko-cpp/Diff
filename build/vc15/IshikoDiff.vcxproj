@@ -69,17 +69,17 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>IshikoDiff-d</TargetName>
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>IshikoDiff-d</TargetName>
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -150,11 +150,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Algorithms.cpp" />
-    <ClCompile Include="..\..\Source\BinaryDiff.cpp" />
-    <ClCompile Include="..\..\Source\TextChunk.cpp" />
-    <ClCompile Include="..\..\Source\TextDiff.cpp" />
-    <ClCompile Include="..\..\Source\TextPatch.cpp" />
+    <ClCompile Include="..\..\src\Algorithms.cpp" />
+    <ClCompile Include="..\..\src\BinaryDiff.cpp" />
+    <ClCompile Include="..\..\src\TextChunk.cpp" />
+    <ClCompile Include="..\..\src\TextDiff.cpp" />
+    <ClCompile Include="..\..\src\TextPatch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Ishiko\Diff.h" />
