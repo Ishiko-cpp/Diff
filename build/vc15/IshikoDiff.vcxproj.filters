@@ -40,19 +40,19 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\Algorithms.cpp">
+    <ClCompile Include="..\..\src\Algorithms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\BinaryDiff.cpp">
+    <ClCompile Include="..\..\src\BinaryDiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TextChunk.cpp">
+    <ClCompile Include="..\..\src\TextChunk.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TextDiff.cpp">
+    <ClCompile Include="..\..\src\TextDiff.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\TextPatch.cpp">
+    <ClCompile Include="..\..\src\TextPatch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
