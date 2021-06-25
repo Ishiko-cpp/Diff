@@ -8,10 +8,10 @@ import $(ishikopath)/third-party-glue/include/Ishiko/ThirdParty/Boost.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
-gnu.makefile = ../GNUmakefile/GNUmakefile;
-vs2017.solutionfile = ../VC15/IshikoDiff.sln;
-vs2015.solutionfile = ../VC14/IshikoDiff.sln;
-vs2013.solutionfile = ../VC12/IshikoDiff.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2017.solutionfile = ../vc15/IshikoDiff.sln;
+vs2015.solutionfile = ../vc14/IshikoDiff.sln;
+vs2013.solutionfile = ../vc12/IshikoDiff.sln;
 
 library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
 {
