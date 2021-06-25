@@ -49,10 +49,10 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 
     sources
     {
-        ../../Source/Algorithms.cpp
-        ../../Source/BinaryDiff.cpp
-        ../../Source/TextChunk.cpp
-        ../../Source/TextDiff.cpp
-        ../../Source/TextPatch.cpp
+        ../../src/Algorithms.cpp
+        ../../src/BinaryDiff.cpp
+        ../../src/TextChunk.cpp
+        ../../src/TextDiff.cpp
+        ../../src/TextPatch.cpp
     }
 }
