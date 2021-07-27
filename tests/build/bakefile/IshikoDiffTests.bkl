@@ -1,22 +1,23 @@
-import ../../../Include/Ishiko/Diff.bkl;
+import ../../../include/Ishiko/Diff.bkl;
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/tests/include/Ishiko/TestFramework/TestFrameworkCore.bkl;
+import $(ishikopath)/tests/include/Ishiko/Tests/Core.bkl;
 
-toolsets = gnu vs2017 vs2015 vs2013;
+toolsets = gnu vs2019 vs2017 vs2015 vs2013;
 
 gnu.makefile = ../gnumake/GNUmakefile;
+vs2019.solutionfile = ../vc16/IshikoDiffTests.sln;
 vs2017.solutionfile = ../vc15/IshikoDiffTests.sln;
 vs2015.solutionfile = ../vc14/IshikoDiffTests.sln;
 vs2013.solutionfile = ../vc12/IshikoDiffTests.sln;
 
-program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
+program IshikoDiffTests : IshikoDiff, IshikoTestsCore
 {
     archs = x86 x86_64;
 
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += IshikoDiff IshikoFileSystem IshikoText IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem boost_system;
+        libs += IshikoDiff IshikoTestsCore IshikoFileSystem IshikoProcess IshikoText IshikoErrors boost_filesystem boost_system;
     }
 
     headers
