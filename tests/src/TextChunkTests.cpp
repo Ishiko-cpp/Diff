@@ -20,9 +20,9 @@ void TextChunkTests::ConstructorTest1(Test& test)
 {
     TextChunk chunk(3, 5, TextChunk::eIdentical, "abc");
 
-    ISHTF_FAIL_IF_NEQ(chunk.originalPosition(), 3);
-    ISHTF_FAIL_IF_NEQ(chunk.newPosition(), 5);
-    ISHTF_FAIL_IF_NEQ(chunk.type(), TextChunk::eIdentical);
-    ISHTF_FAIL_IF_NEQ(chunk.text(), "abc");
-    ISHTF_PASS();
+    ISHIKO_FAIL_IF_NEQ(chunk.originalPosition(), 3);
+    ISHIKO_FAIL_IF_NEQ(chunk.newPosition(), 5);
+    ISHIKO_FAIL_IF_NEQ(chunk.type(), TextChunk::eIdentical);
+    ISHIKO_FAIL_IF_NEQ(chunk.text(), "abc");
+    ISHIKO_PASS();
 }

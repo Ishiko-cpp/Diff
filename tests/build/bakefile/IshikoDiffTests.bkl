@@ -1,5 +1,5 @@
-import ../../../include/Ishiko/Diff.bkl;
 ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/diff/include/Ishiko/Diff.bkl;
 import $(ishikopath)/tests/include/Ishiko/Tests/Core.bkl;
 
 toolsets = gnu vs2019 vs2017 vs2015 vs2013;
@@ -22,18 +22,18 @@ program IshikoDiffTests : IshikoDiff, IshikoTestsCore
 
     headers
     {
-        ../../Source/AlgorithmsTests.h
-        ../../Source/TextChunkTests.h
-        ../../Source/TextDiffTests.h
-        ../../Source/TextPatchTests.h
+        ../../src/AlgorithmsTests.h
+        ../../src/TextChunkTests.h
+        ../../src/TextDiffTests.h
+        ../../src/TextPatchTests.h
     }
 
     sources
     {
-        ../../Source/main.cpp
-        ../../Source/AlgorithmsTests.cpp
-        ../../Source/TextChunkTests.cpp
-        ../../Source/TextDiffTests.cpp
-        ../../Source/TextPatchTests.cpp
+        ../../src/main.cpp
+        ../../src/AlgorithmsTests.cpp
+        ../../src/TextChunkTests.cpp
+        ../../src/TextDiffTests.cpp
+        ../../src/TextPatchTests.cpp
     }
 }

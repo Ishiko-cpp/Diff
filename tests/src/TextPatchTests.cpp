@@ -20,5 +20,5 @@ void TextPatchTests::ConstructorTest1(Test& test)
 {
     TextPatch patch;
 
-    ISHTF_PASS();
+    ISHIKO_PASS();
 }
