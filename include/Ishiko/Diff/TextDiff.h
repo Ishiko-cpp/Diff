@@ -4,12 +4,12 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_DIFF_TEXTDIFF_H_
-#define _ISHIKO_DIFF_TEXTDIFF_H_
+#ifndef _ISHIKO_CPP_DIFF_TEXTDIFF_H_
+#define _ISHIKO_CPP_DIFF_TEXTDIFF_H_
 
 #include "TextPatch.h"
-#include <Ishiko/Errors.h>
 #include <boost/filesystem/path.hpp>
+#include <Ishiko/Errors.hpp>
 
 namespace Ishiko
 {
