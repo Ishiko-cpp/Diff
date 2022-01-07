@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2021 Xavier Leclercq
+    Copyright (c) 2021-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
@@ -8,7 +8,7 @@
 #include "TextChunkTests.h"
 #include "TextPatchTests.h"
 #include "TextDiffTests.h"
-#include <Ishiko/Tests/Core.h>
+#include <Ishiko/Tests/Core.hpp>
 
 using namespace Ishiko::Tests;
 
