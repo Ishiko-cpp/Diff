@@ -8,7 +8,7 @@
 #include "Algorithms.h"
 #include "TextChunk.h"
 #include <Ishiko/FileSystem.hpp>
-#include <Ishiko/Text.h>
+#include <Ishiko/Text.hpp>
 #include <unordered_set>
 #include <vector>
 
