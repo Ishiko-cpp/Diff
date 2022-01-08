@@ -57,8 +57,8 @@ TextPatch TextDiff::WordDiff(const std::string& originalString, const std::strin
 {
     TextPatch result;
 
-    std::vector<std::string> originalWords = ASCII::Split(originalString);
-    std::vector<std::string> newWords = ASCII::Split(newString);
+    std::vector<std::string> originalWords = ASCII::Split(originalString, ' ');
+    std::vector<std::string> newWords = ASCII::Split(newString, ' ');
 
     std::unordered_set<std::string> wordsSet(originalWords.begin(), originalWords.end());
     wordsSet.insert(newWords.begin(), newWords.end());
