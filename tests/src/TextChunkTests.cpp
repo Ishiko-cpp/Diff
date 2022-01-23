@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2021 Xavier Leclercq
+    Copyright (c) 2021-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
@@ -10,8 +10,8 @@
 using namespace Ishiko::Diff;
 using namespace Ishiko::Tests;
 
-TextChunkTests::TextChunkTests(const TestNumber& number, const TestEnvironment& environment)
-    : TestSequence(number, "TextChunk tests", environment)
+TextChunkTests::TextChunkTests(const TestNumber& number, const TestContext& context)
+    : TestSequence(number, "TextChunk tests", context)
 {
     append<HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
 }
