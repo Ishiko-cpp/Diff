@@ -12,7 +12,7 @@
 class AlgorithmsTests : public Ishiko::Tests::TestSequence
 {
 public:
-    AlgorithmsTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestEnvironment& environment);
+    AlgorithmsTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestContext& context);
 
 private:
     static void WagnerFischerAlgorithmTest1(Ishiko::Tests::Test& test);

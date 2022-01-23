@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2021 Xavier Leclercq
+    Copyright (c) 2021-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
@@ -11,8 +11,8 @@ using namespace Ishiko;
 using namespace Ishiko::Diff;
 using namespace Ishiko::Tests;
 
-AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestEnvironment& environment)
-    : TestSequence(number, "Algorithms tests", environment)
+AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestContext& context)
+    : TestSequence(number, "Algorithms tests", context)
 {
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 1", WagnerFischerAlgorithmTest1);
     append<HeapAllocationErrorsTest>("WagnerFischerAlgorithm test 2", WagnerFischerAlgorithmTest2);
