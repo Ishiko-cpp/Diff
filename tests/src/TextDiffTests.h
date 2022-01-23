@@ -12,7 +12,7 @@
 class TextDiffTests : public Ishiko::Tests::TestSequence
 {
 public:
-    TextDiffTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestEnvironment& environment);
+    TextDiffTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestContext& context);
 
 private:
     static void CharacterDiffTest1(Ishiko::Tests::Test& test);

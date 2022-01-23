@@ -12,7 +12,7 @@
 class TextPatchTests : public Ishiko::Tests::TestSequence
 {
 public:
-    TextPatchTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestEnvironment& environment);
+    TextPatchTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestContext& context);
 
 private:
     static void ConstructorTest1(Ishiko::Tests::Test& test);
