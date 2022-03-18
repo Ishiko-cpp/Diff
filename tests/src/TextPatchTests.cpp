@@ -7,8 +7,8 @@
 #include "TextPatchTests.h"
 #include "Ishiko/Diff/TextPatch.h"
 
+using namespace Ishiko;
 using namespace Ishiko::Diff;
-using namespace Ishiko::Tests;
 
 TextPatchTests::TextPatchTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "TextPatch tests", context)
@@ -20,5 +20,5 @@ void TextPatchTests::ConstructorTest1(Test& test)
 {
     TextPatch patch;
 
-    ISHIKO_PASS();
+    ISHIKO_TEST_PASS();
 }

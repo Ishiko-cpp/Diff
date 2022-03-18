@@ -13,7 +13,6 @@
 #include <vector>
 
 using namespace Ishiko::FileSystem;
-using namespace Ishiko::Text;
 
 namespace Ishiko
 {
