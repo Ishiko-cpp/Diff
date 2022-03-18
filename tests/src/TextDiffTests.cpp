@@ -9,7 +9,6 @@
 
 using namespace Ishiko;
 using namespace Ishiko::Diff;
-using namespace Ishiko::Tests;
 
 TextDiffTests::TextDiffTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "TextDiff tests", context)
@@ -47,268 +46,268 @@ void TextDiffTests::CharacterDiffTest1(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("", "");
 
-    ISHIKO_FAIL_IF(patch.hasChanges());
-    ISHIKO_FAIL_IF_NEQ(patch.size(), 0);
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF(patch.hasChanges());
+    ISHIKO_TEST_FAIL_IF_NEQ(patch.size(), 0);
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest2(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("a", "a");
 
-    ISHIKO_FAIL_IF(patch.hasChanges());
-    ISHIKO_FAIL_IF_NEQ(patch.size(), 0);
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF(patch.hasChanges());
+    ISHIKO_TEST_FAIL_IF_NEQ(patch.size(), 0);
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest3(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("a", "");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "a");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest4(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("", "a");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "a");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest5(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("ab", "a");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "b");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "b");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest6(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("a", "ab");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "b");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "b");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest7(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("abc", "a");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "b");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "c");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "b");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "c");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest8(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("a", "abc");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "b");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "c");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "b");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "c");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::CharacterDiffTest9(Test& test)
 {
     TextPatch patch = TextDiff::CharacterDiff("a", "b");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "a");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "b");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "b");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest1(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("", "");
 
-    ISHIKO_FAIL_IF(patch.hasChanges());
-    ISHIKO_FAIL_IF_NEQ(patch.size(), 0);
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF(patch.hasChanges());
+    ISHIKO_TEST_FAIL_IF_NEQ(patch.size(), 0);
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest2(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("a", "a");
 
-    ISHIKO_FAIL_IF(patch.hasChanges());
-    ISHIKO_FAIL_IF_NEQ(patch.size(), 0);
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF(patch.hasChanges());
+    ISHIKO_TEST_FAIL_IF_NEQ(patch.size(), 0);
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest3(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("a", "");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "a");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest4(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("abc", "");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "abc");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "abc");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest5(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("", "a");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "a");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "a");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest6(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("", "abc");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "abc");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "abc");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest7(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("a word", "a");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "word");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest8(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("a", "a word");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "word");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest9(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("a word more", "a");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "word");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "more");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "more");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest10(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("a", "a word more");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "word");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "more");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "word");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "more");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::WordDiffTest11(Test& test)
 {
     TextPatch patch = TextDiff::WordDiff("apple", "oranges");
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "apple");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "oranges");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "apple");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "oranges");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest1(Test& test)
@@ -319,9 +318,9 @@ void TextDiffTests::LineDiffFilesTest1(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF(error);
-    ISHIKO_FAIL_IF(patch.hasChanges());
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF(error);
+    ISHIKO_TEST_FAIL_IF(patch.hasChanges());
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest2(Test& test)
@@ -332,9 +331,9 @@ void TextDiffTests::LineDiffFilesTest2(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF(error);
-    ISHIKO_FAIL_IF(patch.hasChanges());
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF(error);
+    ISHIKO_TEST_FAIL_IF(patch.hasChanges());
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest3(Test& test)
@@ -345,13 +344,13 @@ void TextDiffTests::LineDiffFilesTest3(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest4(Test& test)
@@ -362,13 +361,13 @@ void TextDiffTests::LineDiffFilesTest4(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 0);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 0);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "A file with a single line.");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest5(Test& test)
@@ -379,13 +378,13 @@ void TextDiffTests::LineDiffFilesTest5(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "Another line.");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "Another line.");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest6(Test& test)
@@ -396,13 +395,13 @@ void TextDiffTests::LineDiffFilesTest6(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "Another line.");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "Another line.");
+    ISHIKO_TEST_PASS();
 }
 
 void TextDiffTests::LineDiffFilesTest7(Test& test)
@@ -413,15 +412,15 @@ void TextDiffTests::LineDiffFilesTest7(Test& test)
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
 
-    ISHIKO_FAIL_IF_NOT(patch.hasChanges());
-    ISHIKO_ABORT_IF_NEQ(patch.size(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
-    ISHIKO_FAIL_IF_NEQ(patch[0].text(), "jumps over");
-    ISHIKO_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
-    ISHIKO_FAIL_IF_NEQ(patch[1].newPosition(), 1);
-    ISHIKO_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
-    ISHIKO_FAIL_IF_NEQ(patch[1].text(), "leaps over");
-    ISHIKO_PASS();
+    ISHIKO_TEST_FAIL_IF_NOT(patch.hasChanges());
+    ISHIKO_TEST_ABORT_IF_NEQ(patch.size(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].originalPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].type(), TextChunk::eDeletion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[0].text(), "jumps over");
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].originalPosition(), 2);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].newPosition(), 1);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].type(), TextChunk::eInsertion);
+    ISHIKO_TEST_FAIL_IF_NEQ(patch[1].text(), "leaps over");
+    ISHIKO_TEST_PASS();
 }

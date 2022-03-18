@@ -9,13 +9,13 @@
 
 #include <Ishiko/Tests/Core.hpp>
 
-class TextPatchTests : public Ishiko::Tests::TestSequence
+class TextPatchTests : public Ishiko::TestSequence
 {
 public:
-    TextPatchTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestContext& context);
+    TextPatchTests(const Ishiko::TestNumber& number, const Ishiko::TestContext& context);
 
 private:
-    static void ConstructorTest1(Ishiko::Tests::Test& test);
+    static void ConstructorTest1(Ishiko::Test& test);
 };
 
 #endif

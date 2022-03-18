@@ -9,36 +9,36 @@
 
 #include <Ishiko/Tests/Core.hpp>
 
-class AlgorithmsTests : public Ishiko::Tests::TestSequence
+class AlgorithmsTests : public Ishiko::TestSequence
 {
 public:
-    AlgorithmsTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestContext& context);
+    AlgorithmsTests(const Ishiko::TestNumber& number, const Ishiko::TestContext& context);
 
 private:
-    static void WagnerFischerAlgorithmTest1(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest2(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest3(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest4(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest5(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest6(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest7(Ishiko::Tests::Test& test);
-    static void WagnerFischerAlgorithmTest8(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest1(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest2(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest3(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest4(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest5(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest6(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest7(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest8(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest9(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest10(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest11(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest12(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest13(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest14(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest15(Ishiko::Tests::Test& test);
-    static void MyersAlgorithmTest16(Ishiko::Tests::Test& test);
+    static void WagnerFischerAlgorithmTest1(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest2(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest3(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest4(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest5(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest6(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest7(Ishiko::Test& test);
+    static void WagnerFischerAlgorithmTest8(Ishiko::Test& test);
+    static void MyersAlgorithmTest1(Ishiko::Test& test);
+    static void MyersAlgorithmTest2(Ishiko::Test& test);
+    static void MyersAlgorithmTest3(Ishiko::Test& test);
+    static void MyersAlgorithmTest4(Ishiko::Test& test);
+    static void MyersAlgorithmTest5(Ishiko::Test& test);
+    static void MyersAlgorithmTest6(Ishiko::Test& test);
+    static void MyersAlgorithmTest7(Ishiko::Test& test);
+    static void MyersAlgorithmTest8(Ishiko::Test& test);
+    static void MyersAlgorithmTest9(Ishiko::Test& test);
+    static void MyersAlgorithmTest10(Ishiko::Test& test);
+    static void MyersAlgorithmTest11(Ishiko::Test& test);
+    static void MyersAlgorithmTest12(Ishiko::Test& test);
+    static void MyersAlgorithmTest13(Ishiko::Test& test);
+    static void MyersAlgorithmTest14(Ishiko::Test& test);
+    static void MyersAlgorithmTest15(Ishiko::Test& test);
+    static void MyersAlgorithmTest16(Ishiko::Test& test);
 };
 
 #endif
