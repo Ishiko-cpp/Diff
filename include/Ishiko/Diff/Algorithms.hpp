@@ -4,16 +4,14 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_DIFF_ALGORITHMS_H_
-#define _ISHIKO_DIFF_ALGORITHMS_H_
+#ifndef _ISHIKO_CPP_DIFF_ALGORITHMS_HPP_
+#define _ISHIKO_CPP_DIFF_ALGORITHMS_HPP_
 
 #include <Ishiko/Types.hpp>
 #include <string>
 #include <vector>
 
 namespace Ishiko
-{
-namespace Diff
 {
 
 /**
@@ -127,8 +125,5 @@ size_t MyersAlgorithm(const std::vector<T>& originalString, const std::vector<T>
 size_t WagnerFischerAlgorithm(const std::string& originalString, const std::string& newString);
 
 }
-}
-
-#include "linkoptions.h"
 
 #endif

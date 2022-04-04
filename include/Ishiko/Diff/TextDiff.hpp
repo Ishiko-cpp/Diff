@@ -1,19 +1,17 @@
 /*
-    Copyright (c) 2021 Xavier Leclercq
+    Copyright (c) 2021-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_CPP_DIFF_TEXTDIFF_H_
-#define _ISHIKO_CPP_DIFF_TEXTDIFF_H_
+#ifndef _ISHIKO_CPP_DIFF_TEXTDIFF_HPP_
+#define _ISHIKO_CPP_DIFF_TEXTDIFF_HPP_
 
-#include "TextPatch.h"
+#include "TextPatch.hpp"
 #include <boost/filesystem/path.hpp>
 #include <Ishiko/Errors.hpp>
 
 namespace Ishiko
-{
-namespace Diff
 {
 
 class TextDiff
@@ -26,8 +24,5 @@ public:
 };
 
 }
-}
-
-#include "linkoptions.h"
 
 #endif

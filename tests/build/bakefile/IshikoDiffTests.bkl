@@ -22,10 +22,10 @@ program IshikoDiffTests : IshikoDiff, IshikoTestsCore
 
     headers
     {
-        ../../src/AlgorithmsTests.h
-        ../../src/TextChunkTests.h
-        ../../src/TextDiffTests.h
-        ../../src/TextPatchTests.h
+        ../../src/AlgorithmsTests.hpp
+        ../../src/TextChunkTests.hpp
+        ../../src/TextDiffTests.hpp
+        ../../src/TextPatchTests.hpp
     }
 
     sources

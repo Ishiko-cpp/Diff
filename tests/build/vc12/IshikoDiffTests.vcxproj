@@ -159,10 +159,10 @@
     <ClCompile Include="..\..\src\TextPatchTests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\AlgorithmsTests.h" />
-    <ClInclude Include="..\..\src\TextChunkTests.h" />
-    <ClInclude Include="..\..\src\TextDiffTests.h" />
-    <ClInclude Include="..\..\src\TextPatchTests.h" />
+    <ClInclude Include="..\..\src\AlgorithmsTests.hpp" />
+    <ClInclude Include="..\..\src\TextChunkTests.hpp" />
+    <ClInclude Include="..\..\src\TextDiffTests.hpp" />
+    <ClInclude Include="..\..\src\TextPatchTests.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

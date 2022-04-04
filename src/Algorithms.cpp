@@ -4,7 +4,7 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "Algorithms.h"
+#include "Algorithms.hpp"
 #include <Ishiko/Collections.hpp>
 #include <algorithm>
 #include <vector>
@@ -12,8 +12,6 @@
 using namespace Ishiko::Collections;
 
 namespace Ishiko
-{
-namespace Diff
 {
 
 size_t MyersAlgorithm(const std::string& originalString, const std::string& newString)
@@ -174,5 +172,4 @@ size_t WagnerFischerAlgorithm(const std::string& originalString, const std::stri
     return distances.get(newString.size(), originalString.size());
 }
 
-}
 }

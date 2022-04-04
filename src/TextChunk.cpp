@@ -4,11 +4,9 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "TextChunk.h"
+#include "TextChunk.hpp"
 
 namespace Ishiko
-{
-namespace Diff
 {
 
 TextChunk::TextChunk(size_t originalPosition, size_t newPosition, Type type, const std::string& text)
@@ -36,5 +34,4 @@ const std::string& TextChunk::text() const
     return m_text;
 }
 
-}
 }

@@ -4,12 +4,10 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "AlgorithmsTests.h"
-#include "Ishiko/Diff/Algorithms.h"
+#include "AlgorithmsTests.hpp"
+#include "Ishiko/Diff/Algorithms.hpp"
 
 using namespace Ishiko;
-using namespace Ishiko::Diff;
-using namespace Ishiko::Tests;
 
 AlgorithmsTests::AlgorithmsTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "Algorithms tests", context)
