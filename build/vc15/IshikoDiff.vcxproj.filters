@@ -17,25 +17,25 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Ishiko\Diff.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Diff\Algorithms.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff\Algorithms.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Diff\BinaryDiff.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff\BinaryDiff.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Diff\TextChunk.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff\TextChunk.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Diff\TextDiff.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff\TextDiff.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Diff\TextPatch.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff\TextPatch.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Ishiko\Diff\linkoptions.h">
+    <ClInclude Include="..\..\include\Ishiko\Diff\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

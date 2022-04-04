@@ -4,11 +4,10 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "TextPatchTests.h"
-#include "Ishiko/Diff/TextPatch.h"
+#include "TextPatchTests.hpp"
+#include "Ishiko/Diff/TextPatch.hpp"
 
 using namespace Ishiko;
-using namespace Ishiko::Diff;
 
 TextPatchTests::TextPatchTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "TextPatch tests", context)

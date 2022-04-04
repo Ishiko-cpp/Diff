@@ -4,4 +4,7 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "BinaryDiff.hpp"
+#ifndef _ISHIKO_CPP_DIFF_BINARYDIFF_HPP_
+#define _ISHIKO_CPP_DIFF_BINARYDIFF_HPP_
+
+#endif

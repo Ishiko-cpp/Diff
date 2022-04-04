@@ -4,10 +4,11 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "AlgorithmsTests.h"
-#include "TextChunkTests.h"
-#include "TextPatchTests.h"
-#include "TextDiffTests.h"
+#include "AlgorithmsTests.hpp"
+#include "TextChunkTests.hpp"
+#include "TextPatchTests.hpp"
+#include "TextDiffTests.hpp"
+#include "Ishiko/Diff/linkoptions.hpp"
 #include <Ishiko/Tests/Core.hpp>
 
 using namespace Ishiko;

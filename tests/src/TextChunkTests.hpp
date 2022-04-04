@@ -4,8 +4,8 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#ifndef _ISHIKO_CPP_DIFF_TESTS_TEXTCHUNKTESTS_H_
-#define _ISHIKO_CPP_DIFF_TESTS_TEXTCHUNKTESTS_H_
+#ifndef _ISHIKO_CPP_DIFF_TESTS_TEXTCHUNKTESTS_HPP_
+#define _ISHIKO_CPP_DIFF_TESTS_TEXTCHUNKTESTS_HPP_
 
 #include <Ishiko/Tests/Core.hpp>
 
