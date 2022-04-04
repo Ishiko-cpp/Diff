@@ -38,14 +38,14 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 
     headers
     {
-        ../../include/Ishiko/Diff.h
+        ../../include/Ishiko/Diff.hpp
 
-        ../../include/Ishiko/Diff/Algorithms.h
-        ../../include/Ishiko/Diff/BinaryDiff.h
-        ../../include/Ishiko/Diff/TextChunk.h
-        ../../include/Ishiko/Diff/TextDiff.h
-        ../../include/Ishiko/Diff/TextPatch.h
-        ../../include/Ishiko/Diff/linkoptions.h
+        ../../include/Ishiko/Diff/Algorithms.hpp
+        ../../include/Ishiko/Diff/BinaryDiff.hpp
+        ../../include/Ishiko/Diff/TextChunk.hpp
+        ../../include/Ishiko/Diff/TextDiff.hpp
+        ../../include/Ishiko/Diff/TextPatch.hpp
+        ../../include/Ishiko/Diff/linkoptions.hpp
     }
 
     sources

@@ -157,13 +157,13 @@
     <ClCompile Include="..\..\src\TextPatch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Ishiko\Diff.h" />
-    <ClInclude Include="..\..\include\Ishiko\Diff\Algorithms.h" />
-    <ClInclude Include="..\..\include\Ishiko\Diff\BinaryDiff.h" />
-    <ClInclude Include="..\..\include\Ishiko\Diff\TextChunk.h" />
-    <ClInclude Include="..\..\include\Ishiko\Diff\TextDiff.h" />
-    <ClInclude Include="..\..\include\Ishiko\Diff\TextPatch.h" />
-    <ClInclude Include="..\..\include\Ishiko\Diff\linkoptions.h" />
+    <ClInclude Include="..\..\include\Ishiko\Diff.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\Algorithms.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\BinaryDiff.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\TextChunk.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\TextDiff.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\TextPatch.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\linkoptions.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,9 +4,9 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "TextDiff.h"
-#include "Algorithms.h"
-#include "TextChunk.h"
+#include "TextDiff.hpp"
+#include "Algorithms.hpp"
+#include "TextChunk.hpp"
 #include <Ishiko/FileSystem.hpp>
 #include <Ishiko/Text.hpp>
 #include <unordered_set>
@@ -15,8 +15,6 @@
 using namespace Ishiko::FileSystem;
 
 namespace Ishiko
-{
-namespace Diff
 {
 
 TextPatch TextDiff::CharacterDiff(const std::string& originalString, const std::string& newString)
@@ -160,5 +158,4 @@ TextPatch TextDiff::LineDiffFiles(const boost::filesystem::path& originalFile, c
     return result;
 }
 
-}
 }
