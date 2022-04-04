@@ -17,16 +17,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\AlgorithmsTests.h">
+    <ClInclude Include="..\..\src\AlgorithmsTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\TextChunkTests.h">
+    <ClInclude Include="..\..\src\TextChunkTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\TextDiffTests.h">
+    <ClInclude Include="..\..\src\TextDiffTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\src\TextPatchTests.h">
+    <ClInclude Include="..\..\src\TextPatchTests.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

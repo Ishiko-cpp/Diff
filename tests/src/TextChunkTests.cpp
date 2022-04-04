@@ -4,11 +4,10 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "TextChunkTests.h"
-#include "Ishiko/Diff/TextChunk.h"
+#include "TextChunkTests.hpp"
+#include "Ishiko/Diff/TextChunk.hpp"
 
 using namespace Ishiko;
-using namespace Ishiko::Diff;
 
 TextChunkTests::TextChunkTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "TextChunk tests", context)

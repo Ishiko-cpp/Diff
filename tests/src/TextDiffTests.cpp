@@ -4,11 +4,10 @@
     See https://github.com/ishiko-cpp/diff/blob/main/LICENSE.txt
 */
 
-#include "TextDiffTests.h"
-#include "Ishiko/Diff/TextDiff.h"
+#include "TextDiffTests.hpp"
+#include "Ishiko/Diff/TextDiff.hpp"
 
 using namespace Ishiko;
-using namespace Ishiko::Diff;
 
 TextDiffTests::TextDiffTests(const TestNumber& number, const TestContext& context)
     : TestSequence(number, "TextDiff tests", context)
