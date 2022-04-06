@@ -7,7 +7,7 @@
 #ifndef _ISHIKO_CPP_DIFF_TESTS_ALGORITHMSTESTS_HPP_
 #define _ISHIKO_CPP_DIFF_TESTS_ALGORITHMSTESTS_HPP_
 
-#include <Ishiko/Tests/Core.hpp>
+#include <Ishiko/TestFramework/Core.hpp>
 
 class AlgorithmsTests : public Ishiko::TestSequence
 {
