@@ -9,8 +9,6 @@
 #include <algorithm>
 #include <vector>
 
-using namespace Ishiko::Collections;
-
 namespace Ishiko
 {
 
