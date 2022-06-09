@@ -5,6 +5,7 @@
 */
 
 #include "AlgorithmsTests.hpp"
+#include "DiffUnifiedFormatWriterTests.hpp"
 #include "TextChunkTests.hpp"
 #include "TextPatchTests.hpp"
 #include "TextDiffTests.hpp"
@@ -24,6 +25,7 @@ int main(int argc, char* argv[])
     theTests.append<TextChunkTests>();
     theTests.append<TextPatchTests>();
     theTests.append<TextDiffTests>();
+    theTests.append<DiffUnifiedFormatWriterTests>();
 
     return theTestHarness.run();
 }

@@ -7,4 +7,13 @@
 #ifndef _ISHIKO_CPP_DIFF_DIFFUNIFIEDFORMATWRITER_HPP_
 #define _ISHIKO_CPP_DIFF_DIFFUNIFIEDFORMATWRITER_HPP_
 
+namespace Ishiko
+{
+
+class DiffUnifiedFormatWriter
+{
+};
+
+}
+
 #endif
