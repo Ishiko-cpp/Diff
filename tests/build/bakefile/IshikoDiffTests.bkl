@@ -23,6 +23,7 @@ program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
     headers
     {
         ../../src/AlgorithmsTests.hpp
+        ../../src/DiffUnifiedFormatWriterTests.hpp
         ../../src/TextChunkTests.hpp
         ../../src/TextDiffTests.hpp
         ../../src/TextPatchTests.hpp
@@ -30,8 +31,9 @@ program IshikoDiffTests : IshikoDiff, IshikoTestFrameworkCore
 
     sources
     {
-        ../../src/main.cpp
         ../../src/AlgorithmsTests.cpp
+        ../../src/DiffUnifiedFormatWriterTests.cpp
+        ../../src/main.cpp
         ../../src/TextChunkTests.cpp
         ../../src/TextDiffTests.cpp
         ../../src/TextPatchTests.cpp

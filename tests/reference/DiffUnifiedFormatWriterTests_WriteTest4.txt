@@ -1,0 +1,3 @@
+--- ../../data\EmptyFile1.txt
++++ ../../data\File2.txt
++A file with a single line.

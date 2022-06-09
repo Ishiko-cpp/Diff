@@ -5,6 +5,7 @@
 */
 
 #include "AlgorithmsTests.hpp"
+#include "DiffUnifiedFormatWriterTests.hpp"
 #include "TextChunkTests.hpp"
 #include "TextPatchTests.hpp"
 #include "TextDiffTests.hpp"
@@ -18,12 +19,15 @@ int main(int argc, char* argv[])
     TestHarness theTestHarness("IshikoDiff");
 
     theTestHarness.context().setTestDataDirectory("../../data");
+    theTestHarness.context().setTestOutputDirectory("../../output");
+    theTestHarness.context().setReferenceDataDirectory("../../reference");
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<AlgorithmsTests>();
     theTests.append<TextChunkTests>();
     theTests.append<TextPatchTests>();
     theTests.append<TextDiffTests>();
+    theTests.append<DiffUnifiedFormatWriterTests>();
 
     return theTestHarness.run();
 }

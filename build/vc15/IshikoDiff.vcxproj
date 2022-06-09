@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\Algorithms.cpp" />
     <ClCompile Include="..\..\src\BinaryDiff.cpp" />
+    <ClCompile Include="..\..\src\DiffUnifiedFormatWriter.cpp" />
     <ClCompile Include="..\..\src\TextChunk.cpp" />
     <ClCompile Include="..\..\src\TextDiff.cpp" />
     <ClCompile Include="..\..\src\TextPatch.cpp" />
@@ -160,6 +161,7 @@
     <ClInclude Include="..\..\include\Ishiko\Diff.hpp" />
     <ClInclude Include="..\..\include\Ishiko\Diff\Algorithms.hpp" />
     <ClInclude Include="..\..\include\Ishiko\Diff\BinaryDiff.hpp" />
+    <ClInclude Include="..\..\include\Ishiko\Diff\DiffUnifiedFormatWriter.hpp" />
     <ClInclude Include="..\..\include\Ishiko\Diff\TextChunk.hpp" />
     <ClInclude Include="..\..\include\Ishiko\Diff\TextDiff.hpp" />
     <ClInclude Include="..\..\include\Ishiko\Diff\TextPatch.hpp" />

@@ -89,14 +89,17 @@ ISHIKO_CPP_TESTFRAMEWORK_ROOT ?= $(ISHIKO_CPP)/test-framework
 
 all: $(_builddir)IshikoDiffTests
 
-$(_builddir)IshikoDiffTests: $(_builddir)IshikoDiffTests_main.o $(_builddir)IshikoDiffTests_AlgorithmsTests.o $(_builddir)IshikoDiffTests_TextChunkTests.o $(_builddir)IshikoDiffTests_TextDiffTests.o $(_builddir)IshikoDiffTests_TextPatchTests.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)IshikoDiffTests_main.o $(_builddir)IshikoDiffTests_AlgorithmsTests.o $(_builddir)IshikoDiffTests_TextChunkTests.o $(_builddir)IshikoDiffTests_TextDiffTests.o $(_builddir)IshikoDiffTests_TextPatchTests.o -L$(ISHIKO_CPP_ERRORS_ROOT)/lib -L$(ISHIKO_CPP_BOOST_ROOT)/lib -L$(ISHIKO_CPP_FILESYSTEM_ROOT)/lib -L$(ISHIKO_CPP_TEXT_ROOT)/lib -L$(ISHIKO_CPP_TYPES_ROOT)/lib -L$(ISHIKO_CPP_DIFF_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/lib -lIshikoDiff -lIshikoTestFrameworkCore -lIshikoFileSystem -lIshikoProcess -lIshikoText -lIshikoErrors -lboost_filesystem -lboost_system -pthread
-
-$(_builddir)IshikoDiffTests_main.o: ../../src/main.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/main.cpp
+$(_builddir)IshikoDiffTests: $(_builddir)IshikoDiffTests_AlgorithmsTests.o $(_builddir)IshikoDiffTests_DiffUnifiedFormatWriterTests.o $(_builddir)IshikoDiffTests_main.o $(_builddir)IshikoDiffTests_TextChunkTests.o $(_builddir)IshikoDiffTests_TextDiffTests.o $(_builddir)IshikoDiffTests_TextPatchTests.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)IshikoDiffTests_AlgorithmsTests.o $(_builddir)IshikoDiffTests_DiffUnifiedFormatWriterTests.o $(_builddir)IshikoDiffTests_main.o $(_builddir)IshikoDiffTests_TextChunkTests.o $(_builddir)IshikoDiffTests_TextDiffTests.o $(_builddir)IshikoDiffTests_TextPatchTests.o -L$(ISHIKO_CPP_ERRORS_ROOT)/lib -L$(ISHIKO_CPP_BOOST_ROOT)/lib -L$(ISHIKO_CPP_FILESYSTEM_ROOT)/lib -L$(ISHIKO_CPP_TEXT_ROOT)/lib -L$(ISHIKO_CPP_TYPES_ROOT)/lib -L$(ISHIKO_CPP_DIFF_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/lib -lIshikoDiff -lIshikoTestFrameworkCore -lIshikoFileSystem -lIshikoProcess -lIshikoText -lIshikoErrors -lboost_filesystem -lboost_system -pthread
 
 $(_builddir)IshikoDiffTests_AlgorithmsTests.o: ../../src/AlgorithmsTests.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/AlgorithmsTests.cpp
+
+$(_builddir)IshikoDiffTests_DiffUnifiedFormatWriterTests.o: ../../src/DiffUnifiedFormatWriterTests.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/DiffUnifiedFormatWriterTests.cpp
+
+$(_builddir)IshikoDiffTests_main.o: ../../src/main.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/main.cpp
 
 $(_builddir)IshikoDiffTests_TextChunkTests.o: ../../src/TextChunkTests.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I$(ISHIKO_CPP_DIFF_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/include -std=c++11 ../../src/TextChunkTests.cpp

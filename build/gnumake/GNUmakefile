@@ -89,8 +89,8 @@ ISHIKO_CPP_TYPES_ROOT ?= $(ISHIKO_CPP)/types
 
 all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a
 
-../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
-	$(AR) rc $@ $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
+../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),IshikoDiff-d,IshikoDiff).a: $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_DiffUnifiedFormatWriter.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
+	$(AR) rc $@ $(_builddir)IshikoDiff_Algorithms.o $(_builddir)IshikoDiff_BinaryDiff.o $(_builddir)IshikoDiff_DiffUnifiedFormatWriter.o $(_builddir)IshikoDiff_TextChunk.o $(_builddir)IshikoDiff_TextDiff.o $(_builddir)IshikoDiff_TextPatch.o
 	$(RANLIB) $@
 
 $(_builddir)IshikoDiff_Algorithms.o: ../../src/Algorithms.cpp
@@ -98,6 +98,9 @@ $(_builddir)IshikoDiff_Algorithms.o: ../../src/Algorithms.cpp
 
 $(_builddir)IshikoDiff_BinaryDiff.o: ../../src/BinaryDiff.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Diff -std=c++11 ../../src/BinaryDiff.cpp
+
+$(_builddir)IshikoDiff_DiffUnifiedFormatWriter.o: ../../src/DiffUnifiedFormatWriter.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Diff -std=c++11 ../../src/DiffUnifiedFormatWriter.cpp
 
 $(_builddir)IshikoDiff_TextChunk.o: ../../src/TextChunk.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_COLLECTIONS_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_FILESYSTEM_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_TYPES_ROOT)/include -I../../include/Ishiko/Diff -std=c++11 ../../src/TextChunk.cpp

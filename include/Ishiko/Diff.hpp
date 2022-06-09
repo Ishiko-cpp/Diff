@@ -9,6 +9,7 @@
 
 #include "Diff/Algorithms.hpp"
 #include "Diff/BinaryDiff.hpp"
+#include "Diff/DiffUnifiedFormatWriter.hpp"
 #include "Diff/TextDiff.hpp"
 
 #include "Diff/linkoptions.hpp"
