@@ -6,6 +6,7 @@
 
 #include "DiffUnifiedFormatWriterTests.hpp"
 #include "Ishiko/Diff/DiffUnifiedFormatWriter.hpp"
+#include <boost/filesystem.hpp>
 
 using namespace Ishiko;
 
@@ -17,7 +18,15 @@ DiffUnifiedFormatWriterTests::DiffUnifiedFormatWriterTests(const TestNumber& num
 
 void DiffUnifiedFormatWriterTests::ConstructorTest1(Test& test)
 {
-    DiffUnifiedFormatWriter writer;
+    boost::filesystem::path output =
+        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_ConstructorTest1.txt");
 
+    Error error;
+    DiffUnifiedFormatWriter writer(output, error);
+    writer.close();
+
+    ISHIKO_TEST_FAIL_IF(error);
+    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_ConstructorTest1.txt",
+        "DiffUnifiedFormatWriterTests_ConstructorTest1.txt");
     ISHIKO_TEST_PASS();
 }
