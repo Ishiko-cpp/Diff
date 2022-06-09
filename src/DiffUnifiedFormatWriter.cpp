@@ -34,4 +34,27 @@ void DiffUnifiedFormatWriter::writeNewFilePath(const std::string& path)
 
 void DiffUnifiedFormatWriter::write(const TextPatch& patch)
 {
+    for (size_t i = 0; i < patch.size(); ++i)
+    {
+        const TextChunk& chunk = patch[i];
+        switch (chunk.type())
+        {
+        case TextChunk::eDeletion:
+            m_outputFile.write("-");
+            break;
+
+        case TextChunk::eIdentical:
+            m_outputFile.write(" ");
+            break;
+
+        case TextChunk::eInsertion:
+            m_outputFile.write("+");
+            break;
+
+        default:
+            // TODO
+            break;
+        }
+        m_outputFile.writeLine(chunk.text().c_str());
+    }
 }
