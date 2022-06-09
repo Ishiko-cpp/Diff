@@ -44,6 +44,7 @@ void DiffUnifiedFormatWriter::write(const TextPatch& patch)
             break;
 
         case TextChunk::eIdentical:
+            // TODO: in fact this doesn't work because the TextPatch we are creating do not contain the identical lines
             m_outputFile.write(" ");
             break;
 

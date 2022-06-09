@@ -19,6 +19,10 @@ private:
     static void WriteTest1(Ishiko::Test& test);
     static void WriteTest2(Ishiko::Test& test);
     static void WriteTest3(Ishiko::Test& test);
+    static void WriteTest4(Ishiko::Test& test);
+    static void WriteTest5(Ishiko::Test& test);
+    static void WriteTest6(Ishiko::Test& test);
+    static void WriteTest7(Ishiko::Test& test);
 };
 
 #endif
