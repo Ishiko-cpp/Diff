@@ -42,6 +42,7 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
 
         ../../include/Ishiko/Diff/Algorithms.hpp
         ../../include/Ishiko/Diff/BinaryDiff.hpp
+        ../../include/Ishiko/Diff/DiffUnifiedFormatWriter.hpp
         ../../include/Ishiko/Diff/TextChunk.hpp
         ../../include/Ishiko/Diff/TextDiff.hpp
         ../../include/Ishiko/Diff/TextPatch.hpp
@@ -52,6 +53,7 @@ library IshikoDiff : IshikoCollections, IshikoFileSystem, IshikoText, IshikoType
     {
         ../../src/Algorithms.cpp
         ../../src/BinaryDiff.cpp
+        ../../src/DiffUnifiedFormatWriter.cpp
         ../../src/TextChunk.cpp
         ../../src/TextDiff.cpp
         ../../src/TextPatch.cpp
