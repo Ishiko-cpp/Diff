@@ -311,8 +311,8 @@ void TextDiffTests::WordDiffTest11(Test& test)
 
 void TextDiffTests::LineDiffFilesTest1(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("EmptyFile1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("EmptyFile2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("EmptyFile1.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -324,8 +324,8 @@ void TextDiffTests::LineDiffFilesTest1(Test& test)
 
 void TextDiffTests::LineDiffFilesTest2(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("File2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -337,8 +337,8 @@ void TextDiffTests::LineDiffFilesTest2(Test& test)
 
 void TextDiffTests::LineDiffFilesTest3(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("EmptyFile2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -354,8 +354,8 @@ void TextDiffTests::LineDiffFilesTest3(Test& test)
 
 void TextDiffTests::LineDiffFilesTest4(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("EmptyFile1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("EmptyFile1.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("File2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -371,8 +371,8 @@ void TextDiffTests::LineDiffFilesTest4(Test& test)
 
 void TextDiffTests::LineDiffFilesTest5(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File4.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File3.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File4.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("File3.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -388,8 +388,8 @@ void TextDiffTests::LineDiffFilesTest5(Test& test)
 
 void TextDiffTests::LineDiffFilesTest6(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File3.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File4.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File3.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("File4.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -405,8 +405,8 @@ void TextDiffTests::LineDiffFilesTest6(Test& test)
 
 void TextDiffTests::LineDiffFilesTest7(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File5.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File6.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File5.txt");
+    boost::filesystem::path newFile = test.context().getDataPath("File6.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);

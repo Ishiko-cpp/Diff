@@ -18,9 +18,9 @@ int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("IshikoDiff");
 
-    theTestHarness.context().setTestDataDirectory("../../data");
-    theTestHarness.context().setTestOutputDirectory("../../output");
-    theTestHarness.context().setReferenceDataDirectory("../../reference");
+    theTestHarness.context().setDataDirectory("../../data");
+    theTestHarness.context().setOutputDirectory("../../output");
+    theTestHarness.context().setReferenceDirectory("../../reference");
 
     TestSequence& theTests = theTestHarness.tests();
     theTests.append<AlgorithmsTests>();
