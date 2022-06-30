@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ishiko/gcc-ishiko-cpp-build-prerequisites:0.2.0
+      - image: ishiko/gcc-ishiko-cpp-build-prerequisites:0.3.0
     steps:
       - run:
           name: "Set ISHIKO_CPP environment variable and create workspace directory"
@@ -34,6 +34,12 @@ jobs:
           name: "Install test dependency: Ishiko/C++ Process"
           command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/process.git && cd process/build/gnumake && make
       - run:
+          name: "Install test dependency: Ishiko/C++ XML"
+          command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/xml.git && cd xml/build/gnumake && make
+      - run:
+          name: "Install test dependency: Ishiko/C++ Configuration"
+          command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/configuration.git && cd configuration/build/gnumake && make
+      - run:
           name: "Install test dependency: Ishiko/C++ Tests/Core"
           command: cd /projects/ishiko/cpp && git clone https://github.com/ishiko-cpp/test-framework.git && cd test-framework/core/build/gnumake && make
       - run:
@@ -41,7 +47,15 @@ jobs:
           command: cd /projects/ishiko/cpp/diff/tests/build/gnumake && make
       - run:
           name: Run the tests
-          command: cd /projects/ishiko/cpp/diff/tests/build/gnumake && ./IshikoDiffTests
+          command: cd /projects/ishiko/cpp/diff/tests/build/gnumake && ./IshikoDiffTests --persistent-storage=/build/test-output --junit-xml-test-report=/build/test-results/IshikoDiff.xml
+      - store_artifacts:
+          path: /build/test-output
+          destination: test-output
+      - store_artifacts:
+          path: /build/test-results/IshikoDiff.xml
+          destination: IshikoDiff-test-results.xml
+      - store_test_results:
+          path: /build/test-results/IshikoDiff.xml
 workflows:
   version: 2
   continuous_build:
