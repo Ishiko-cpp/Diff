@@ -16,7 +16,11 @@ using namespace Ishiko;
 
 int main(int argc, char* argv[])
 {
-    TestHarness theTestHarness("IshikoDiff");
+    TestHarness::CommandLineSpecification commandLineSpec;
+    Configuration configuration = commandLineSpec.createDefaultConfiguration();
+    CommandLineParser::parse(commandLineSpec, argc, argv, configuration);
+
+    TestHarness theTestHarness("IshikoDiff Library Tests", configuration);
 
     theTestHarness.context().setDataDirectory("../../data");
     theTestHarness.context().setOutputDirectory("../../output");
