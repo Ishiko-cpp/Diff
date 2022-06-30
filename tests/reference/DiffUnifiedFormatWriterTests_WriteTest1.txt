@@ -1,2 +1,2 @@
---- ../../data\EmptyFile1.txt
-+++ ../../data\EmptyFile2.txt
+--- ../../data/EmptyFile1.txt
++++ ../../data/EmptyFile2.txt

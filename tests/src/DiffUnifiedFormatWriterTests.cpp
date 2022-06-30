@@ -27,25 +27,24 @@ DiffUnifiedFormatWriterTests::DiffUnifiedFormatWriterTests(const TestNumber& num
 
 void DiffUnifiedFormatWriterTests::ConstructorTest1(Test& test)
 {
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_ConstructorTest1.txt");
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_ConstructorTest1.txt");
 
     Error error;
     DiffUnifiedFormatWriter writer(output, error);
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_ConstructorTest1.txt",
-        "DiffUnifiedFormatWriterTests_ConstructorTest1.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_ConstructorTest1.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest1(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("EmptyFile1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("EmptyFile2.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest1.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("EmptyFile1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest1.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -57,17 +56,17 @@ void DiffUnifiedFormatWriterTests::WriteTest1(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest1.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest1.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest1.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest2(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File2.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest2.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("File2.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest2.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -79,17 +78,17 @@ void DiffUnifiedFormatWriterTests::WriteTest2(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest2.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest2.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest2.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest3(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("EmptyFile2.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest3.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest3.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -101,17 +100,17 @@ void DiffUnifiedFormatWriterTests::WriteTest3(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest3.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest3.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest3.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest4(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("EmptyFile1.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File2.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest4.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("EmptyFile1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("File2.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest4.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -123,17 +122,17 @@ void DiffUnifiedFormatWriterTests::WriteTest4(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest4.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest4.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest4.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest5(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File4.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File3.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest5.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("File4.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("File3.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest5.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -145,17 +144,17 @@ void DiffUnifiedFormatWriterTests::WriteTest5(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest5.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest5.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest5.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest6(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File3.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File4.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest6.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("File3.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("File4.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest6.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -167,17 +166,17 @@ void DiffUnifiedFormatWriterTests::WriteTest6(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest6.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest6.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest6.txt");
     ISHIKO_TEST_PASS();
 }
 
 void DiffUnifiedFormatWriterTests::WriteTest7(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getTestDataPath("File5.txt");
-    boost::filesystem::path newFile = test.context().getTestDataPath("File6.txt");
-    boost::filesystem::path output =
-        test.context().getTestOutputPath("DiffUnifiedFormatWriterTests_WriteTest7.txt");
+    // In general we don't care about the path being generic but these will be part of the output we want to verify and
+    // it's easier if they are identical on all platforms
+    boost::filesystem::path originalFile = test.context().getDataPath("File5.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("File6.txt").generic_path();
+    boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest7.txt");
 
     Error error;
     TextPatch patch = TextDiff::LineDiffFiles(originalFile, newFile, error);
@@ -189,7 +188,6 @@ void DiffUnifiedFormatWriterTests::WriteTest7(Test& test)
     writer.close();
 
     ISHIKO_TEST_FAIL_IF(error);
-    ISHIKO_TEST_FAIL_IF_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest7.txt",
-        "DiffUnifiedFormatWriterTests_WriteTest7.txt");
+    ISHIKO_TEST_FAIL_IF_OUTPUT_AND_REFERENCE_FILES_NEQ("DiffUnifiedFormatWriterTests_WriteTest7.txt");
     ISHIKO_TEST_PASS();
 }
