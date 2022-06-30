@@ -40,8 +40,8 @@ void DiffUnifiedFormatWriterTests::ConstructorTest1(Test& test)
 
 void DiffUnifiedFormatWriterTests::WriteTest1(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getDataPath("EmptyFile1.txt");
-    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("EmptyFile1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt").generic_path();
     boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest1.txt");
 
     Error error;
@@ -60,8 +60,8 @@ void DiffUnifiedFormatWriterTests::WriteTest1(Test& test)
 
 void DiffUnifiedFormatWriterTests::WriteTest2(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt");
-    boost::filesystem::path newFile = test.context().getDataPath("File2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("File2.txt").generic_path();
     boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest2.txt");
 
     Error error;
@@ -80,8 +80,8 @@ void DiffUnifiedFormatWriterTests::WriteTest2(Test& test)
 
 void DiffUnifiedFormatWriterTests::WriteTest3(Test& test)
 {
-    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt");
-    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt");
+    boost::filesystem::path originalFile = test.context().getDataPath("File1.txt").generic_path();
+    boost::filesystem::path newFile = test.context().getDataPath("EmptyFile2.txt").generic_path();
     boost::filesystem::path output = test.context().getOutputPath("DiffUnifiedFormatWriterTests_WriteTest3.txt");
 
     Error error;
