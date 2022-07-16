@@ -11,27 +11,39 @@
 #include "TextDiffTests.hpp"
 #include "Ishiko/Diff/linkoptions.hpp"
 #include <Ishiko/TestFramework/Core.hpp>
+#include <exception>
 
 using namespace Ishiko;
 
 int main(int argc, char* argv[])
 {
-    TestHarness::CommandLineSpecification commandLineSpec;
-    Configuration configuration = commandLineSpec.createDefaultConfiguration();
-    CommandLineParser::parse(commandLineSpec, argc, argv, configuration);
+    try
+    {
+        TestHarness::CommandLineSpecification commandLineSpec;
+        commandLineSpec.setDefaultValue("context/data", "../../data");
+        commandLineSpec.setDefaultValue("context/output", "../../output");
+        commandLineSpec.setDefaultValue("context/reference", "../../reference");
 
-    TestHarness theTestHarness("IshikoDiff Library Tests", configuration);
+        Configuration configuration = commandLineSpec.createDefaultConfiguration();
+        CommandLineParser::parse(commandLineSpec, argc, argv, configuration);
 
-    theTestHarness.context().setDataDirectory("../../data");
-    theTestHarness.context().setOutputDirectory("../../output");
-    theTestHarness.context().setReferenceDirectory("../../reference");
+        TestHarness theTestHarness("Ishiko/C++ Diff Library Tests", configuration);
 
-    TestSequence& theTests = theTestHarness.tests();
-    theTests.append<AlgorithmsTests>();
-    theTests.append<TextChunkTests>();
-    theTests.append<TextPatchTests>();
-    theTests.append<TextDiffTests>();
-    theTests.append<DiffUnifiedFormatWriterTests>();
+        TestSequence& theTests = theTestHarness.tests();
+        theTests.append<AlgorithmsTests>();
+        theTests.append<TextChunkTests>();
+        theTests.append<TextPatchTests>();
+        theTests.append<TextDiffTests>();
+        theTests.append<DiffUnifiedFormatWriterTests>();
 
-    return theTestHarness.run();
+        return theTestHarness.run();
+    }
+    catch (const std::exception& e)
+    {
+        return TestApplicationReturnCode::exception;
+    }
+    catch (...)
+    {
+        return TestApplicationReturnCode::exception;
+    }
 }
