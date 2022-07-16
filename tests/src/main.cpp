@@ -20,9 +20,9 @@ int main(int argc, char* argv[])
     try
     {
         TestHarness::CommandLineSpecification commandLineSpec;
-        commandLineSpec.setDefaultValue("context/data", "../../data");
-        commandLineSpec.setDefaultValue("context/output", "../../output");
-        commandLineSpec.setDefaultValue("context/reference", "../../reference");
+        commandLineSpec.setDefaultValue("context.data", "../../data");
+        commandLineSpec.setDefaultValue("context.output", "../../output");
+        commandLineSpec.setDefaultValue("context.reference", "../../reference");
 
         Configuration configuration = commandLineSpec.createDefaultConfiguration();
         CommandLineParser::parse(commandLineSpec, argc, argv, configuration);
