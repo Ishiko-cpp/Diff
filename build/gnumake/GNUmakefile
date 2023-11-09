@@ -37,7 +37,7 @@ endif
 # Additionally, this makefile is customizable with the following
 # settings:
 #
-#      ISHIKO_CPP_COLLECTIONS_ROOT   Path to the Ishiko Collections installation
+#      ISHIKO_CPP_COLLECTIONS_ROOT   Path to the Ishiko/C++ Collections installation
 #      ISHIKO_CPP_BASEPLATFORM_ROOT  Path to the Ishiko/C++ BasePlatform installation
 #      ISHIKO_CPP_ERRORS_ROOT        Path to the Ishiko/C++ Errors installation
 #      ISHIKO_CPP_IO_ROOT            Path to the Ishiko/C++ IO installation
@@ -72,8 +72,8 @@ endif
 # Configurable settings:
 # 
 
-# Path to the Ishiko Collections installation
-ISHIKO_CPP_COLLECTIONS_ROOT ?= $(ISHIKO_CPP)/collections
+# Path to the Ishiko/C++ Collections installation
+ISHIKO_CPP_COLLECTIONS_ROOT ?= $(ISHIKO_CPP_ROOT)/collections
 # Path to the Ishiko/C++ BasePlatform installation
 ISHIKO_CPP_BASEPLATFORM_ROOT ?= $(ISHIKO_CPP_ROOT)/base-platform
 # Path to the Ishiko/C++ Errors installation
