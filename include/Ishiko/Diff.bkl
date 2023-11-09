@@ -1,4 +1,4 @@
-ishikopath = envvar("ISHIKO_CPP");
+ishikopath = envvar("ISHIKO_CPP_ROOT");
 import $(ishikopath)/errors/include/Ishiko/Errors.bkl;
 import $(ishikopath)/filesystem/include/Ishiko/FileSystem.bkl;
 import $(ishikopath)/text/include/Ishiko/Text.bkl;
@@ -7,8 +7,8 @@ import $(ishikopath)/third-party-glue/include/Ishiko/ThirdParty/Boost.bkl;
 
 setting ISHIKO_CPP_DIFF_ROOT
 {
-    help = "Path to the Ishiko Diff installation";
-    default = '$(ISHIKO_CPP)/diff';
+    help = "Path to the Ishiko/C++ Diff installation";
+    default = '$(ISHIKO_CPP_ROOT)/diff';
 }
 
 template IshikoDiff : IshikoFileSystem, IshikoText, IshikoTypes, IshikoErrors, Boost
