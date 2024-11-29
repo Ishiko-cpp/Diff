@@ -108,7 +108,15 @@ TextPatch TextDiff::LineDiffFiles(const boost::filesystem::path& originalFile, c
     TextPatch result;
 
     std::string originalString = ReadFile(originalFile, error);
+    if (error)
+    {
+        return result;
+    }
     std::string newString = ReadFile(newFile, error);
+    if (error)
+    {
+        return result;
+    }
     
     std::vector<std::string> originalLines = ASCII::GetLines(originalString);
     std::vector<std::string> newLines = ASCII::GetLines(newString);
